@@ -139,9 +139,9 @@ class Ninja {
 		this.velocity.x *= 0.9;
 		this.velocity.y *= 0.9;
 		
-		if (this.y >  660) {
+		if (this.y >  440) {
 			this.jumping = false;
-			this.y = 660;
+			this.y = 440;
 			this.velocity.y = 0;
 		}
 		
