@@ -34,7 +34,7 @@ class SceneManager{
         
      //  }
      //  this.ninja.removeFromWorld = false;
-     this.ninja = new Ninja(this.game,420,0);
+      this.ninja = new Ninja(this.game,420,0);
       this.ninja.velocity = {x:0, y:0};
       this.game.addEntity(this.ninja);
 
@@ -48,7 +48,7 @@ class SceneManager{
     updateAudio() {
         var mute = document.getElementById("mute").checked;
         var volume = document.getElementById("volume").value;
-
+        
         ASSET_MANAGER.muteAudio(mute);
         ASSET_MANAGER.adjustVolume(volume);
 

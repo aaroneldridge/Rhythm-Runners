@@ -79,8 +79,9 @@ class AssetManager {
 
     playAsset(path) {
         let audio = this.cache[path];
-        audio.currentTime = 0;
-        audio.play();
+        audio.oncanplay = function() {
+            audio.currentTime = 0;
+        };        audio.play();
     };
 
     muteAudio(mute) {
