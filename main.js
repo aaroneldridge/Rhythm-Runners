@@ -4,6 +4,9 @@ const ASSET_MANAGER = new AssetManager();
 
 ASSET_MANAGER.queueDownload("./ninja.png");
 
+//music
+ASSET_MANAGER.queueDownload("./run.mp3");
+
 ASSET_MANAGER.downloadAll(() => {
 	const canvas = document.getElementById("gameWorld");
 	const ctx = canvas.getContext("2d");
@@ -13,9 +16,11 @@ ASSET_MANAGER.downloadAll(() => {
 	var background = document.getElementById("gameWorld").style.backgroundImage="url('./land.png')";
 	document.getElementById("gameWorld").style.backgroundSize="1024px 768px";
 
-	gameEngine.addEntity(new Ninja(gameEngine));
-
+	ASSET_MANAGER.autoRepeat("./run.mp3");
+//	gameEngine.addEntity(new Ninja(gameEngine,420,0));
+	
 	gameEngine.init(ctx);
 
+	new SceneManager(gameEngine);
 	gameEngine.start();
 });

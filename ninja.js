@@ -1,13 +1,15 @@
 class Ninja {
-	constructor(game) {
-		this.game = game;
+	constructor(game,x,y) {
+		Object.assign(this, {game, x, y });
+		//this.game = game;
+		this.game.ninja = this;
 		this.spritesheet = ASSET_MANAGER.getAsset("./ninja.png");
 		
 		//this.walk = new Animator(this.spritesheet, 1, 52, 25, 23, 10, .1);
 		//this.idle = new Animator(this.spritesheet, 6, 4, 24, 21, 2, 1.2);
 		
-		this.x = 420;
-		this.y = 0;
+		//this.x = 420;
+		//this.y = 0;
 		this.jumping = false;
 		
 		this.state = 0; // 0 = idle, 1 = walking, 2 = jumping
