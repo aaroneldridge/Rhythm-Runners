@@ -25,7 +25,6 @@ class AssetManager {
             var ext = path.substring(path.length - 3);
 
             switch (ext) {
-                case 'jpg':
                 case 'png':
                     var img = new Image();
                     img.addEventListener("load", function () {
@@ -45,7 +44,6 @@ class AssetManager {
                     break;
                 case 'wav':
                 case 'mp3':
-                case 'mp4':
                     var aud = new Audio();
                     aud.addEventListener("loadeddata", function () {
                         console.log("Loaded " + this.src);

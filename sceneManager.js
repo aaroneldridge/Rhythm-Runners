@@ -3,16 +3,15 @@ class SceneManager{
         this.game = game;
         this.game.camera = this;
         this.x = 0;
-        
-       
-      
 
         this.title = true;
         //this.transition = false;
         this.level = null;
 
         this.ninja = new Ninja(this.game,420,0);
-        this.loadlevel(levelOne,true);
+        this.ninja.velocity = {x:0, y:0};
+        this.game.addEntity(this.ninja);
+        this.loadlevel(levelOne,false);
     };
 
     clearEntities() {
@@ -23,27 +22,21 @@ class SceneManager{
   
     loadlevel(level,title, transition) {
         this.title = title;
-        this.level = level;
+        //this.level = level;
         this.transition = transition;
-
-      this.clearEntities();
+        this.clearEntities();
         this.x = 0; 
         
 
         if(transition) {
             this.game.addEntity(new TransitionScreen(this.game,level,x,y,title));
         }
-           
-        
-        //this.ninja.removeFromWorld = false;
-       // this.ninja.velocity = {x:0, y:0};
-       this.game.addEntity(this.ninja);
 
-         /*  if(level.music ){
+        if(level.music && !this.title){
            ASSET_MANAGER.pauseBackgroundMusic();
            ASSET_MANAGER.playAsset(level.music);
        }
-        */
+        
     };
 
     
@@ -75,34 +68,25 @@ class SceneManager{
         }
     };
     draw(ctx) {
-        /*
-         ctx.font = PARAMS.BLOCKWIDTH / 2 + 'px "Press Start 2P"';
-        ctx.fillStyle = "White";
 
-        ctx.fillStyle = "White";
-        ctx.fillText("MARRIOTT", 1.5 * PARAMS.BLOCKWIDTH, 1 * PARAMS.BLOCKWIDTH);
-        ctx.fillText((this.score + "").padStart(8,"0"), 1.5 * PARAMS.BLOCKWIDTH, 1.5 * PARAMS.BLOCKWIDTH);
-        ctx.fillText("x" + (this.coins < 10 ? "0" : "") + this.coins, 6.5 * PARAMS.BLOCKWIDTH, 1.5 * PARAMS.BLOCKWIDTH);
-        ctx.fillText("WORLD", 9 * PARAMS.BLOCKWIDTH, 1 * PARAMS.BLOCKWIDTH);
-        ctx.fillText(this.level.label, 9.5 * PARAMS.BLOCKWIDTH, 1.5 * PARAMS.BLOCKWIDTH);
-        ctx.fillText("TIME", 12.5 * PARAMS.BLOCKWIDTH, 1 * PARAMS.BLOCKWIDTH);
-        ctx.fillText("400", 13 * PARAMS.BLOCKWIDTH, 1.5 * PARAMS.BLOCKWIDTH);
 
         if (this.title) {
-            var width = 176;
-            var height = 88;
-            ctx.drawImage(ASSET_MANAGER.getAsset("./sprites/title.png"), 2.5 * PARAMS.BLOCKWIDTH, 2 * PARAMS.BLOCKWIDTH, width * PARAMS.SCALE, height * PARAMS.SCALE);
-            ctx.fillStyle = this.game.mouse && this.game.mouse.y > 9 * PARAMS.BLOCKWIDTH && this.game.mouse.y < 9.5 * PARAMS.BLOCKWIDTH ? "Grey" : "White";
-            ctx.fillText("MARIO", 6.75 * PARAMS.BLOCKWIDTH, 9.5 * PARAMS.BLOCKWIDTH);
-            ctx.fillStyle = this.game.mouse && this.game.mouse.y > 10 * PARAMS.BLOCKWIDTH && this.game.mouse.y < 10.5 * PARAMS.BLOCKWIDTH ? "Grey" : "White";
-            ctx.fillText("LUIGI", 6.75 * PARAMS.BLOCKWIDTH, 10.5 * PARAMS.BLOCKWIDTH);
-        }
 
-        this.coinAnimation.drawFrame(this.game.clockTick, ctx, 6 * PARAMS.BLOCKWIDTH, 1 * PARAMS.BLOCKWIDTH, 3);
+            ctx.font = 5 * PARAMS.BLOCKWIDTH + 'px "Press Start 2P"';
+            ctx.fillStyle = "White";
+            ctx.fillText("SOLITARY SLAMMER", 
+                         this.hero.BB.center.x - this.x - 8 * 5 * PARAMS.BLOCKWIDTH, 
+                         this.hero.BB.top - this.y);
+            ctx.font = 3 * PARAMS.BLOCKWIDTH + 'px "Press Start 2P"';
+            ctx.fillStyle = this.game.mouse && 
+                            this.game.mouse.x > this.hero.BB.center.x - this.x - 2.5 * 3 * PARAMS.BLOCKWIDTH && 
+                            this.game.mouse.x < this.hero.BB.center.x - this.x + 2.5 * 3 * PARAMS.BLOCKWIDTH &&
+                            this.game.mouse.y > this.hero.BB.bottom - this.y && 
+                            this.game.mouse.y < this.hero.BB.bottom - this.y + 3 * PARAMS.BLOCKWIDTH ? "Black" : "White";
+            ctx.fillText("START", 
+                         this.hero.BB.center.x - this.x - 2.5 * 3 * PARAMS.BLOCKWIDTH, 
+                         this.hero.BB.bottom - this.y + 3 * PARAMS.BLOCKWIDTH);
 
-        */
-
-        if (this.title) {
            /* var width = 176;
             var height = 88;
             ctx.drawImage(ASSET_MANAGER.getAsset("./black.jpg"), 2.5 * PARAMS.BLOCKWIDTH, 2 * PARAMS.BLOCKWIDTH, width * PARAMS.SCALE, height * PARAMS.SCALE);
