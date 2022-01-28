@@ -16,7 +16,7 @@ class GameEngine {
         this.mouse = null;
         this.wheel = null;
         this.keys = {};
-        this.mouse = { x: 0, y: 0};
+        this.mouse = { x: 0, y: 0 };
         
         this.left = false;
         this.right = false;
@@ -57,18 +57,19 @@ class GameEngine {
     startInput() {
 		var that = this;
 		
-		var getXandY = function (e) {
+		var getXandY = (e) => {
 			var x = e.clientX - that.ctx.canvas.getBoundingClientRect().left;
 			var y = e.clientY - that.ctx.canvas.getBoundingClientRect().top;
 			
 			return { x: x, y: y, radius: 0 };
 		}
 		
-		this.ctx.canvas.addEventListener("mousemove", function (e) {
+		this.ctx.canvas.addEventListener("mousemove", (e) => {
+			console.log("mousemove", getXandY(e), e);
 			this.mouse = getXandY(e);
 		}, false);
 		
-		this.ctx.canvas.addEventListener("click", function (e) {
+		this.ctx.canvas.addEventListener("click", (e) => {
 			console.log("Click", getXandY(e));
 			this.click = getXandY(e);
 		}, false);
@@ -157,6 +158,7 @@ class GameEngine {
     };
 
     loop() {
+		console.log(this.mouse);
         this.clockTick = this.timer.tick();
         this.update();
         this.draw();
