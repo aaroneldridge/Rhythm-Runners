@@ -2,20 +2,32 @@ const gameEngine = new GameEngine();
 
 const ASSET_MANAGER = new AssetManager();
 
-ASSET_MANAGER.queueDownload("./ninja.png");
+// spritesheets
+ASSET_MANAGER.queueDownload("./sprites/ninja.png");
+
+// sounds
+ASSET_MANAGER.queueDownload("./sounds/bgm.mp3");
+ASSET_MANAGER.queueDownload("./sounds/attack.wav");
+ASSET_MANAGER.queueDownload("./sounds/jump.wav");
+
+// title
+ASSET_MANAGER.queueDownload("./background/title.png");
+
+// objects
+ASSET_MANAGER.queueDownload("./platforms/ground.png");
 
 ASSET_MANAGER.downloadAll(() => {
+	ASSET_MANAGER.autoRepeat("./sounds/bgm.mp3");
+	
+	
 	const canvas = document.getElementById("gameWorld");
 	const ctx = canvas.getContext("2d");
 	ctx.imageSmoothingEnabled = false;
 	
-	// sets background
-	var background = document.getElementById("gameWorld").style.backgroundImage="url('./land.png')";
-	document.getElementById("gameWorld").style.backgroundSize="1024px 768px";
-
-	gameEngine.addEntity(new Ninja(gameEngine));
-
+	
 	gameEngine.init(ctx);
+	
+	new SceneManager(gameEngine);
 
 	gameEngine.start();
 });

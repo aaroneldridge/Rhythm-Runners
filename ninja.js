@@ -1,13 +1,11 @@
 class Ninja {
-	constructor(game) {
-		this.game = game;
-		this.spritesheet = ASSET_MANAGER.getAsset("./ninja.png");
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y });
 		
-		//this.walk = new Animator(this.spritesheet, 1, 52, 25, 23, 10, .1);
-		//this.idle = new Animator(this.spritesheet, 6, 4, 24, 21, 2, 1.2);
+		this.game.ninja = this;
 		
-		this.x = 420;
-		this.y = 0;
+		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/ninja.png");
+		
 		this.jumping = false;
 		
 		this.state = 0; // 0 = idle, 1 = walking, 2 = jumping
@@ -15,7 +13,7 @@ class Ninja {
 		this.animations = [];
 		this.loadAnimations();
 		
-		this.velocity = { x: 0, y: 0};
+		this.velocity = { x: 0, y: 0 };
 	};
 	
 	loadAnimations() {
@@ -39,13 +37,6 @@ class Ninja {
 		
 		// facing left
 		this.animations[1][1] = new Animator(this.spritesheet, 190, 13, 27, 23, 2, 0.2, true);
-		
-		// jumping animation
-		// facing right
-		//this.animations[2][0] = new Animator(this.spritesheet, 265, 46, 27, 23, 3, 0.2, false);
-		
-		// facing left
-		//this.animations[2][1] = new Animator(this.spritesheet, 158, 46, 27, 23, 3, 0.2, true);
 		
 		// sliding animation
 		// facing right
@@ -101,35 +92,17 @@ class Ninja {
 		if (this.game.x) {
 			this.state = 3;
 			this.velocity.x = 0;
+			
+			ASSET_MANAGER.playAsset("./sounds/attack.wav");
 		}
-		
-		// attacks left
-		/*if (this.game.left && !this.game.right && this.game.x) {
-			this.state = 3;
-			this.facing = 1;
-			this.velocity.x = 0;
-		}
-		
-		// attacks right
-		if (this.game.right && !this.game.left && this.game.x) {
-			this.state = 3;
-			this.facing = 0;
-			this.velocity.x = 0;
-		}*/
 		
 		// jumping
 		if (this.game.space && this.jumping == false) {
 			//this.state = 2;
 			this.velocity.y -= 25;
 			this.jumping = true;
+			ASSET_MANAGER.playAsset("./sounds/jump.wav");
 		}
-		
-		// jumping
-		/*if (this.game.space && this.jumping == false) {
-			this.state = 2;
-			this.velocity.y -= 25;
-			this.jumping = true;
-		}*/
 		
 		this.velocity.y += .45; // gravity
 		this.x += this.velocity.x;
@@ -142,23 +115,14 @@ class Ninja {
 			this.y = 660;
 			this.velocity.y = 0;
 		}
-		
-		if (this.x < -260) {
-			this.x = 1024;
-		} else if (this.x > 1024) {
-			this.x = -260;
-		}
-		
-		//this.x += this.velocity.x * this.game.clockTick;
-		//if (this.x > 1024 || this.x < 0) this.x = 0;
-		
-		//this.y += this.velocity.x * this.game.clockTick;
-		//if (this.y > 768 || this.y < 0) this.y = 0;
 	};
 	
 	draw(ctx) {
-		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x, this.y);
+		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		
-		//this.idle.drawFrame(this.game.clockTick, ctx, 0, 150);
+		if (PARAMS.DEBUG) {
+			ctx.strokeStyle = 'Red';
+			//ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
+		}
 	};
 };
