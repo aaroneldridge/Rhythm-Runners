@@ -2,7 +2,7 @@ class Ground {
 	constructor(game, x, y, w) {
 		Object.assign(this, { game, x, y });
 		
-		this.animation = new Animator(ASSET_MANAGER.getAsset("./platform/ground.png"), 0, 0, 456, 219, 1, 1);
+		this.animation = new Animator(ASSET_MANAGER.getAsset("./platforms/ground.png"), 0, 0, 456, 219, 1, 1);
 	};
 	
 	update() {
