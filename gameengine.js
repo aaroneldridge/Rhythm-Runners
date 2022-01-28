@@ -65,7 +65,7 @@ class GameEngine {
 		}
 		
 		this.ctx.canvas.addEventListener("mousemove", (e) => {
-			console.log("mousemove", getXandY(e), e);
+			//console.log("mousemove", getXandY(e), e);
 			this.mouse = getXandY(e);
 		}, false);
 		
@@ -158,7 +158,6 @@ class GameEngine {
     };
 
     loop() {
-		console.log(this.mouse);
         this.clockTick = this.timer.tick();
         this.update();
         this.draw();

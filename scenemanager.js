@@ -92,7 +92,6 @@ class SceneManager {
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillText("TEMPORARY GAME NAME", 200, 200);
 			ctx.fillStyle = "Grey";
-			console.log(this.game.mouse);
 			ctx.fillRect(300, 660, 150, 50);
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 300 && this.game.mouse.x < 450 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
 			ctx.fillText("PLAY", 310, 700);
