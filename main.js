@@ -12,6 +12,8 @@ ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
+ASSET_MANAGER.queueDownload("./background/land.png");
+
 
 // objects
 ASSET_MANAGER.queueDownload("./platforms/ground.png");

@@ -47,10 +47,11 @@ class SceneManager {
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
-				if (that.ninja === entity) ninja = true;
+				if (that.ninja === entity)
+				 ninja = true;
 			});
 			if (!ninja) this.game.addEntity(this.ninja);
-			
+			this.game.addEntity(new Background(this.game, 0, 450));
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
 		}

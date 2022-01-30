@@ -10,6 +10,6 @@ class Background {
 	};
 	
 	draw(ctx) {
-		ctx.drawImage(this.spritesheet);
+		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x-400,0,1700,1000);
 	}
 }
