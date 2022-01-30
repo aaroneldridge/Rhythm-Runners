@@ -7,11 +7,8 @@ class SceneManager {
 		this.title = true;
 		this.transition = false;
 		this.level = null;
-		
 		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
-		
 		this.ninja = new Ninja(this.game, 100, 100);
-		
 		this.loadLevel(levelOne, false, this.title);
 	};
 	
@@ -51,8 +48,10 @@ class SceneManager {
 				 ninja = true;
 			});
 			if (!ninja) this.game.addEntity(this.ninja);
-			for(let i = 0; i < 40; i++)
-				this.game.addEntity(new Background(this.game, 0+(1700*i), 450));
+
+			for(let i = 0; i < 40; i++){
+				this.addBackground(i);
+			}
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
 		}
@@ -109,4 +108,32 @@ class SceneManager {
 			ctx.fillText("CONTINUE", 700, 700);
 		}
 	};
+
+	addBackground(i) {
+		let rand = Math.floor(Math.random() * 6);
+		console.log(rand + " i:" + i);
+		switch(rand) { 
+			case 1:
+				this.game.addEntity(new lantern_w_o(this.game, 0+(1700*i), 480));
+			case 2:
+				this.game.addEntity(new lantern_w(this.game, 0+(1700*i), 450));
+			case 3:
+				this.game.addEntity(new no_trees_w_o(this.game, 0+(1700*i), 450));
+			case 4:
+				this.game.addEntity(new no_trees_w(this.game, 0+(1700*i), 450));
+			case 5:
+				this.game.addEntity(new trees_and_gate(this.game, 0+(1700*i), 450));
+			case 6:
+				this.game.addEntity(new trees_w_o(this.game, 0+(1700*i), 450));
+			case :
+				this.game.addEntity(new trees_w(this.game, 0+(1700*i), 450));
+
+			
+
+		};
+
+
+	};
+
+
 };

@@ -12,7 +12,17 @@ ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
-ASSET_MANAGER.queueDownload("./background/land.png");
+
+//background
+ASSET_MANAGER.queueDownload("./background/lantern w_o.png");
+ASSET_MANAGER.queueDownload("./background/lantern w.png");
+ASSET_MANAGER.queueDownload("./background/no_trees_w_o.png");
+ASSET_MANAGER.queueDownload("./background/no_trees_w.png");
+ASSET_MANAGER.queueDownload("./background/trees and gate.png");
+ASSET_MANAGER.queueDownload("./background/trees w_o.png");
+ASSET_MANAGER.queueDownload("./background/trees w.png");
+
+
 
 
 // objects
