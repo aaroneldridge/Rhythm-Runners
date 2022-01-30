@@ -51,7 +51,8 @@ class SceneManager {
 				 ninja = true;
 			});
 			if (!ninja) this.game.addEntity(this.ninja);
-			this.game.addEntity(new Background(this.game, 0, 450));
+			for(let i = 0; i < 40; i++)
+				this.game.addEntity(new Background(this.game, 0+(1700*i), 450));
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
 		}
