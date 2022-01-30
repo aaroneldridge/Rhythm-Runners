@@ -125,7 +125,7 @@ class SceneManager {
 				this.game.addEntity(new trees_and_gate(this.game, 0+(1700*i), 450));
 			case 6:
 				this.game.addEntity(new trees_w_o(this.game, 0+(1700*i), 450));
-			case :
+			case 0:
 				this.game.addEntity(new trees_w(this.game, 0+(1700*i), 450));
 
 			
