@@ -60,42 +60,37 @@ class Ninja {
 		const TICK = this.game.clockTick;
         
         // no left/right inputs -- idle
-        if (!this.game.left && !this.game.right) {
-			this.state = 0;
-			this.velocity.x = 0;
-		}
 		
-		// slides left
-		if (this.game.left && !this.game.right && this.game.z) {
-			this.state = 2;
-			this.facing = 1;
-			this.velocity.x -= .45;
-		}
-		// moves left
-		else if (this.game.left && !this.game.right) {
-			this.state = 1;
-			this.facing = 1;
-			this.velocity.x -= .45;
-		}
+		// // slides left
+		// if (this.game.left && !this.game.right && this.game.z) {
+		// 	this.state = 2;
+		// 	this.facing = 1;
+		// 	this.velocity.x -= .45;
+		// }
+		// // moves left
+		// else if (this.game.left && !this.game.right) {
+		// 	this.state = 1;
+		// 	this.facing = 1;
+		// 	this.velocity.x -= .45;
+		//}
 		
 		// slides right
-		if (this.game.right && !this.game.left && this.game.z) {
+		//this.game.right && !this.game.left && 
+		if (this.game.z) {
 			this.state = 2;
 			this.facing = 0;
-			this.velocity.x += .45;
+			this.velocity.x = 2;
 		}
 		// moves right
-		else if (this.game.right && !this.game.left) {
+		//else if (this.game.right && !this.game.left) {
 			this.state = 1;
 			this.facing = 0;
-			this.velocity.x += .45;
-		}
+			this.velocity.x = 2;
+		//}
 		
 		// attacks
 		if (this.game.x) {
-			this.state = 3;
-			this.velocity.x = 0;
-			
+			this.state = 3;			
 			ASSET_MANAGER.playAsset("./sounds/attack.wav");
 		}
 		
@@ -108,9 +103,8 @@ class Ninja {
 		}
 		
 		this.velocity.y += .3; // gravity
-		this.x += this.velocity.x;
 		this.y += this.velocity.y;
-		this.velocity.x *= 0.95;
+		this.x += this.velocity.x;
 		
 		
 
