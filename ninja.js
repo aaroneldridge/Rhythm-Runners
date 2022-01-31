@@ -85,7 +85,7 @@ class Ninja {
 		//else if (this.game.right && !this.game.left) {
 			this.state = 1;
 			this.facing = 0;
-			this.velocity.x = 2;
+			this.velocity.x = 3;
 		//}
 		
 		// attacks
