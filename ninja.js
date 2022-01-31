@@ -102,12 +102,12 @@ class Ninja {
 		// jumping
 		if (this.game.space && this.jumping == false) {
 			//this.state = 2;
-			this.velocity.y -= 15;
+			this.velocity.y -= 13;
 			this.jumping = true;
 			ASSET_MANAGER.playAsset("./sounds/jump.wav");
 		}
 		
-		this.velocity.y += .4; // gravity
+		this.velocity.y += .3; // gravity
 		this.x += this.velocity.x;
 		this.y += this.velocity.y;
 		this.velocity.x *= 0.95;
@@ -132,7 +132,17 @@ class Ninja {
 
 					}
 				}	
+			
+				if(that.velocity.y < 0){
+					if(entity instanceof Platform_Tile // landing
+						&& (that.lastBB.top) >= entity.BB.bottom) {
+							that.y = entity.BB.bottom;
+							that.velocity.y = 0;
+								
+					}
+				}
 			}
+
 		});
 	};
 	
@@ -147,6 +157,6 @@ class Ninja {
 
 	updateBB() {
 		this.lastBB = this.BB;
-		this.BB = new BoundingBox(this.x, this.y, 40, 110);
+		this.BB = new BoundingBox(this.x, this.y, 32, 110);
 	}
 };

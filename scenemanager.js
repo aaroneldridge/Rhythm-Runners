@@ -51,13 +51,18 @@ class SceneManager {
 
 
 
-			let gap = 64;
+			let gap = 56;
 
 			//Adding Obstacles, Enemies, and Platforms
 			this.game.addEntity(new Platform_Tile(this.game,500+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,500+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,500+(gap*3),500));
 			this.game.addEntity(new Platform_Tile(this.game,500,500));
+
+			this.game.addEntity(new Platform_Tile(this.game,1000+gap,500));
+			this.game.addEntity(new Platform_Tile(this.game,1000+(gap*2),500));
+			this.game.addEntity(new Platform_Tile(this.game,1000+(gap*3),500));
+			this.game.addEntity(new Platform_Tile(this.game,1000,500));
 			
 			for(var i = 0; i < 120; i++){
 				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));

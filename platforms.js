@@ -4,7 +4,7 @@ class Platform_Tile {
 		Object.assign(this, { game, x, y});
 		
 		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/Platform Tile.png");
-		this.BB = new BoundingBox(this.x,this.y,32,32);
+		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
 	};
 	
 	update() {
@@ -22,7 +22,7 @@ class Grass_Middle {
 		Object.assign(this, { game, x, y});
 		
 		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/Grass Middle.png");
-		this.BB = new BoundingBox(this.x,this.y,32,32);
+		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
 	};
 	
 	update() {
