@@ -63,6 +63,27 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,1000+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,1000+(gap*3),500));
 			this.game.addEntity(new Platform_Tile(this.game,1000,500));
+
+			this.game.addEntity(new Platform_Tile(this.game,1200+gap,300));
+			this.game.addEntity(new Platform_Tile(this.game,1200+(gap*2),300));
+			this.game.addEntity(new Platform_Tile(this.game,1200+(gap*3),300));
+			this.game.addEntity(new Platform_Tile(this.game,1200,300));
+
+			this.game.addEntity(new Platform_Tile(this.game,1500+gap,300));
+			this.game.addEntity(new Platform_Tile(this.game,1500+(gap*2),300));
+			this.game.addEntity(new Platform_Tile(this.game,1500+(gap*3),300));
+			this.game.addEntity(new Platform_Tile(this.game,1500,300));
+
+			this.game.addEntity(new Barrel(this.game,1700,700));
+			this.game.addEntity(new Barrel(this.game,900,700));
+			this.game.addEntity(new Barrel(this.game,2404,700));
+			this.game.addEntity(new Barrel(this.game,100,700));
+			this.game.addEntity(new Barrel(this.game,9900,700));
+			this.game.addEntity(new Barrel(this.game,3990,700));
+			this.game.addEntity(new Barrel(this.game,4399,700));
+
+
+			
 			
 			for(var i = 0; i < 120; i++){
 				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
