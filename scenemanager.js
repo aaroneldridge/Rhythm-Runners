@@ -36,11 +36,11 @@ class SceneManager {
 			if (level.ground) {
 				for (var i = 0; i < level.ground.length; i++) {
 					let grounds = level.ground[i];
-					this.game.addEntity(new Ground(this.game, grounds.x, grounds.y));
+					// this.game.addEntity(new Ground(this.game, grounds.x, grounds.y));
 				}
 			}
 			
-			this.ninja = new Ninja(this.game, 0, 660);
+			this.ninja = new Ninja(this.game, 0,500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -49,9 +49,26 @@ class SceneManager {
 			});
 			if (!ninja) this.game.addEntity(this.ninja);
 
+
+
+			let gap = 64;
+
+			//Adding Obstacles, Enemies, and Platforms
+			this.game.addEntity(new Platform_Tile(this.game,500+gap,500));
+			this.game.addEntity(new Platform_Tile(this.game,500+(gap*2),500));
+			this.game.addEntity(new Platform_Tile(this.game,500+(gap*3),500));
+			this.game.addEntity(new Platform_Tile(this.game,500,500));
+			
+			for(var i = 0; i < 120; i++){
+				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
+			}
+			//Adding Random Backgrounds
 			for(let i = 0; i < 40; i++){
 				this.addBackground(i);
 			}
+
+
+
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
 		}

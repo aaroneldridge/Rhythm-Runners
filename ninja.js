@@ -7,13 +7,16 @@ class Ninja {
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/ninja.png");
 		
 		this.jumping = false;
+
+		this.updateBB();
+
 		
 		this.state = 0; // 0 = idle, 1 = walking, 2 = jumping
 		this.facing = 0; // 0 = right, 1 = left
 		this.animations = [];
 		this.loadAnimations();
 		
-		this.velocity = { x: 0, y: 0 };
+		this.velocity = { x: 0,  y: 0 };
 	};
 	
 	loadAnimations() {
@@ -66,26 +69,26 @@ class Ninja {
 		if (this.game.left && !this.game.right && this.game.z) {
 			this.state = 2;
 			this.facing = 1;
-			this.velocity.x -= 0.90;
+			this.velocity.x -= .45;
 		}
 		// moves left
 		else if (this.game.left && !this.game.right) {
 			this.state = 1;
 			this.facing = 1;
-			this.velocity.x -= 0.5;
+			this.velocity.x -= .45;
 		}
 		
 		// slides right
 		if (this.game.right && !this.game.left && this.game.z) {
 			this.state = 2;
 			this.facing = 0;
-			this.velocity.x += 0.90;
+			this.velocity.x += .45;
 		}
 		// moves right
 		else if (this.game.right && !this.game.left) {
 			this.state = 1;
 			this.facing = 0;
-			this.velocity.x += 0.5;
+			this.velocity.x += .45;
 		}
 		
 		// attacks
@@ -99,22 +102,38 @@ class Ninja {
 		// jumping
 		if (this.game.space && this.jumping == false) {
 			//this.state = 2;
-			this.velocity.y -= 25;
+			this.velocity.y -= 15;
 			this.jumping = true;
 			ASSET_MANAGER.playAsset("./sounds/jump.wav");
 		}
 		
-		this.velocity.y += .45; // gravity
+		this.velocity.y += .4; // gravity
 		this.x += this.velocity.x;
 		this.y += this.velocity.y;
-		this.velocity.x *= 0.9;
-		this.velocity.y *= 0.9;
+		this.velocity.x *= 0.95;
 		
-		if (this.y >  660) {
-			this.jumping = false;
-			this.y = 660;
-			this.velocity.y = 0;
-		}
+		
+
+		this.updateBB();
+
+		//collision
+		var that = this;
+		this.game.entities.forEach(function (entity) {
+			if (entity.BB && that.BB.collide(entity.BB)) {
+				if (that.velocity.y > 0) { // falling
+					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle// landing
+						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
+							console.log("top: " + entity.BB.top + " bottom: " + that.lastBB.bottom );
+							that.y = entity.BB.top - 85;
+							that.velocity.y = 0;
+							that.jumping = false;
+							if(entity instanceof Grass_Middle)
+								that.y = entity.BB.top - 64;
+
+					}
+				}	
+			}
+		});
 	};
 	
 	draw(ctx) {
@@ -125,4 +144,9 @@ class Ninja {
 			//ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
 		}
 	};
+
+	updateBB() {
+		this.lastBB = this.BB;
+		this.BB = new BoundingBox(this.x, this.y, 40, 110);
+	}
 };
