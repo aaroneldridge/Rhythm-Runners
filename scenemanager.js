@@ -75,12 +75,12 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,1500,300));
 
 			this.game.addEntity(new Barrel(this.game,1700,700));
-			this.game.addEntity(new Barrel(this.game,900,700));
+			this.game.addEntity(new LanternPost(this.game,600,500));
 			this.game.addEntity(new Barrel(this.game,2404,700));
 			this.game.addEntity(new Barrel(this.game,100,700));
 			this.game.addEntity(new Barrel(this.game,9900,700));
 			this.game.addEntity(new Barrel(this.game,3990,700));
-			this.game.addEntity(new Barrel(this.game,4399,700));
+			this.game.addEntity(new LanternPost(this.game,4399,500));
 
 
 			
