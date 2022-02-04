@@ -81,6 +81,10 @@ class SceneManager {
 			this.game.addEntity(new Barrel(this.game,9900,700));
 			this.game.addEntity(new Barrel(this.game,3990,700));
 			this.game.addEntity(new LanternPost(this.game,4399,500));
+			
+			this.game.addEntity(new Coin(this.game, 500, 670));
+			this.game.addEntity(new Coin(this.game, 780, 430));
+			this.game.addEntity(new Coin(this.game, 500, 670));
 
 
 			

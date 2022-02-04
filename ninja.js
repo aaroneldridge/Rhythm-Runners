@@ -80,13 +80,13 @@ class Ninja {
 			this.state = 2;
 			this.facing = 0;
 			this.velocity.x = 2;
-		}
+		} else {
 		// moves right
 		//else if (this.game.right && !this.game.left) {
 			this.state = 1;
 			this.facing = 0;
 			this.velocity.x = 3;
-		//}
+		}
 		
 		// attacks
 		if (this.game.x) {
@@ -135,8 +135,15 @@ class Ninja {
 								
 					}
 				}
+				
+				if (entity instanceof Coin
+					&& (that.lastBB.right) >= entity.BB.left) {
+						entity.removeFromWorld = true;
+						ASSET_MANAGER.playAsset("./sounds/coin.wav");
+						
+						that.updateBB();
+				}
 			}
-
 		});
 	};
 	

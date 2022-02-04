@@ -12,11 +12,13 @@ ASSET_MANAGER.queueDownload("./sprites/Lantern Post.png");
 ASSET_MANAGER.queueDownload("./sprites/Plant1.png");
 ASSET_MANAGER.queueDownload("./sprites/Pot.png");
 ASSET_MANAGER.queueDownload("./sprites/SPIKES.png");
+ASSET_MANAGER.queueDownload("./sprites/coin.png");
 
 // sounds
 ASSET_MANAGER.queueDownload("./sounds/bgm.mp3");
 ASSET_MANAGER.queueDownload("./sounds/attack.wav");
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
+ASSET_MANAGER.queueDownload("./sounds/coin.wav");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
