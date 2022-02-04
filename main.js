@@ -34,7 +34,6 @@ ASSET_MANAGER.queueDownload("./background/trees w.png");
 
 
 // objects
-ASSET_MANAGER.queueDownload("./platforms/ground.png");
 ASSET_MANAGER.queueDownload("./platforms/Platform Tile.png");
 
 ASSET_MANAGER.downloadAll(() => {
