@@ -1,5 +1,11 @@
 /** Global Parameters Object */
-const params = { };
+const PARAMS = {
+	DEBUG: true,
+	BLOCKWIDTH: 48,
+	CANVAS_WIDTH: 1024,
+	CANVAS_HEIGHT: 768,
+	SCALE: 5
+};
 
 /** Easy access to math functions */
 const {
