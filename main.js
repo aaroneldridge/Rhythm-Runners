@@ -15,6 +15,8 @@ ASSET_MANAGER.queueDownload("./sprites/SPIKES.png");
 
 // sounds
 ASSET_MANAGER.queueDownload("./sounds/bgm.mp3");
+ASSET_MANAGER.queueDownload("./sounds/bgm_w.mp3");
+ASSET_MANAGER.queueDownload("./sounds/bgm_1.mp3");
 ASSET_MANAGER.queueDownload("./sounds/attack.wav");
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 
@@ -38,7 +40,7 @@ ASSET_MANAGER.queueDownload("./platforms/ground.png");
 ASSET_MANAGER.queueDownload("./platforms/Platform Tile.png");
 
 ASSET_MANAGER.downloadAll(() => {
-	ASSET_MANAGER.autoRepeat("./sounds/bgm.mp3");
+	ASSET_MANAGER.autoRepeat("./sounds/bgm_1.mp3");
 	
 	
 	const canvas = document.getElementById("gameWorld");
