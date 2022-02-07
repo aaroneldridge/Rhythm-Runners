@@ -1,23 +1,22 @@
 class Ninja {
-	constructor(game,x,y) {
-		Object.assign(this, {game, x, y });
-		//this.game = game;
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y });
+		
 		this.game.ninja = this;
-		this.spritesheet = ASSET_MANAGER.getAsset("./ninja.png");
 		
-		//this.walk = new Animator(this.spritesheet, 1, 52, 25, 23, 10, .1);
-		//this.idle = new Animator(this.spritesheet, 6, 4, 24, 21, 2, 1.2);
+		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/ninja.png");
 		
-		//this.x = 420;
-		//this.y = 0;
 		this.jumping = false;
+
+		this.updateBB();
+
 		
 		this.state = 0; // 0 = idle, 1 = walking, 2 = jumping
 		this.facing = 0; // 0 = right, 1 = left
 		this.animations = [];
 		this.loadAnimations();
 		
-		this.velocity = { x: 0, y: 0};
+		this.velocity = { x: 200,  y: 0 };
 	};
 	
 	loadAnimations() {
@@ -42,13 +41,6 @@ class Ninja {
 		// facing left
 		this.animations[1][1] = new Animator(this.spritesheet, 190, 13, 27, 23, 2, 0.2, true);
 		
-		// jumping animation
-		// facing right
-		//this.animations[2][0] = new Animator(this.spritesheet, 265, 46, 27, 23, 3, 0.2, false);
-		
-		// facing left
-		//this.animations[2][1] = new Animator(this.spritesheet, 158, 46, 27, 23, 3, 0.2, true);
-		
 		// sliding animation
 		// facing right
 		this.animations[2][0] = new Animator(this.spritesheet, 390, 45, 27, 17, 1, 1, false);
@@ -68,99 +60,97 @@ class Ninja {
 		const TICK = this.game.clockTick;
         
         // no left/right inputs -- idle
-        if (!this.game.left && !this.game.right) {
-			this.state = 0;
-			this.velocity.x = 0;
-		}
 		
-		// slides left
-		if (this.game.left && !this.game.right && this.game.z) {
-			this.state = 2;
-			this.facing = 1;
-			this.velocity.x -= 0.90;
-		}
-		// moves left
-		else if (this.game.left && !this.game.right) {
-			this.state = 1;
-			this.facing = 1;
-			this.velocity.x -= 0.5;
-		}
+		// // slides left
+		// if (this.game.left && !this.game.right && this.game.z) {
+		// 	this.state = 2;
+		// 	this.facing = 1;
+		// 	this.velocity.x -= .45;
+		// }
+		// // moves left
+		// else if (this.game.left && !this.game.right) {
+		// 	this.state = 1;
+		// 	this.facing = 1;
+		// 	this.velocity.x -= .45;
+		//}
 		
 		// slides right
-		if (this.game.right && !this.game.left && this.game.z) {
+		//this.game.right && !this.game.left && 
+		if (this.game.z) {
 			this.state = 2;
 			this.facing = 0;
-			this.velocity.x += 0.90;
+			this.velocity.x = 2;
 		}
 		// moves right
-		else if (this.game.right && !this.game.left) {
+		//else if (this.game.right && !this.game.left) {
 			this.state = 1;
 			this.facing = 0;
-			this.velocity.x += 0.5;
-		}
+			this.velocity.x = 3;
+		//}
 		
 		// attacks
 		if (this.game.x) {
-			this.state = 3;
-			this.velocity.x = 0;
+			this.state = 3;			
+			ASSET_MANAGER.playAsset("./sounds/attack.wav");
 		}
-		
-		// attacks left
-		/*if (this.game.left && !this.game.right && this.game.x) {
-			this.state = 3;
-			this.facing = 1;
-			this.velocity.x = 0;
-		}
-		
-		// attacks right
-		if (this.game.right && !this.game.left && this.game.x) {
-			this.state = 3;
-			this.facing = 0;
-			this.velocity.x = 0;
-		}*/
 		
 		// jumping
 		if (this.game.space && this.jumping == false) {
 			//this.state = 2;
-			this.velocity.y -= 25;
+			this.velocity.y -= 13;
 			this.jumping = true;
+			ASSET_MANAGER.playAsset("./sounds/jump.wav");
 		}
 		
-		// jumping
-		/*if (this.game.space && this.jumping == false) {
-			this.state = 2;
-			this.velocity.y -= 25;
-			this.jumping = true;
-		}*/
-		
-		this.velocity.y += .45; // gravity
-		this.x += this.velocity.x;
+		this.velocity.y += .3; // gravity
 		this.y += this.velocity.y;
-		this.velocity.x *= 0.9;
-		this.velocity.y *= 0.9;
+		this.x += this.velocity.x;
 		
-		if (this.y >  660) {
-			this.jumping = false;
-			this.y = 660;
-			this.velocity.y = 0;
-		}
 		
-		if (this.x < -260) {
-			this.x = 1024;
-		} else if (this.x > 1024) {
-			this.x = -260;
-		}
-		
-		//this.x += this.velocity.x * this.game.clockTick;
-		//if (this.x > 1024 || this.x < 0) this.x = 0;
-		
-		//this.y += this.velocity.x * this.game.clockTick;
-		//if (this.y > 768 || this.y < 0) this.y = 0;
+
+		this.updateBB();
+
+		//collision
+		var that = this;
+		this.game.entities.forEach(function (entity) {
+			if (entity.BB && that.BB.collide(entity.BB)) {
+				if (that.velocity.y > 0) { // falling
+					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle// landing
+						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
+							console.log("top: " + entity.BB.top + " bottom: " + that.lastBB.bottom );
+							that.y = entity.BB.top - 85;
+							that.velocity.y = 0;
+							that.jumping = false;
+							if(entity instanceof Grass_Middle)
+								that.y = entity.BB.top - 64;
+
+					}
+				}	
+			
+				if(that.velocity.y < 0){
+					if(entity instanceof Platform_Tile // landing
+						&& (that.lastBB.top) >= entity.BB.bottom) {
+							that.y = entity.BB.bottom;
+							that.velocity.y = 0;
+								
+					}
+				}
+			}
+
+		});
 	};
 	
 	draw(ctx) {
-		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x, this.y);
+		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		
-		//this.idle.drawFrame(this.game.clockTick, ctx, 0, 150);
+		if (PARAMS.DEBUG) {
+			ctx.strokeStyle = 'Red';
+			//ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
+		}
 	};
+
+	updateBB() {
+		this.lastBB = this.BB;
+		this.BB = new BoundingBox(this.x, this.y, 32, 110);
+	}
 };

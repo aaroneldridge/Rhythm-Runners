@@ -16,6 +16,7 @@ class GameEngine {
         this.mouse = null;
         this.wheel = null;
         this.keys = {};
+        this.mouse = { x: 0, y: 0 };
         
         this.left = false;
         this.right = false;
@@ -55,6 +56,23 @@ class GameEngine {
 
     startInput() {
 		var that = this;
+		
+		var getXandY = (e) => {
+			var x = e.clientX - that.ctx.canvas.getBoundingClientRect().left;
+			var y = e.clientY - that.ctx.canvas.getBoundingClientRect().top;
+			
+			return { x: x, y: y, radius: 0 };
+		}
+		
+		this.ctx.canvas.addEventListener("mousemove", (e) => {
+			//console.log("mousemove", getXandY(e), e);
+			this.mouse = getXandY(e);
+		}, false);
+		
+		this.ctx.canvas.addEventListener("click", (e) => {
+			console.log("Click", getXandY(e));
+			this.click = getXandY(e);
+		}, false);
 		
 		this.ctx.canvas.addEventListener("keydown", function (e) {
 			console.log(e);
@@ -108,48 +126,6 @@ class GameEngine {
 					break;
 			}
 		}, false);
-		
-        /*const getXandY = e => ({
-            x: e.clientX - this.ctx.canvas.getBoundingClientRect().left,
-            y: e.clientY - this.ctx.canvas.getBoundingClientRect().top
-        });
-
-        this.ctx.canvas.addEventListener("mousemove", e => {
-            if (this.options.debugging) {
-                console.log("MOUSE_MOVE", getXandY(e));
-            }
-            this.mouse = getXandY(e);
-        });
-
-        this.ctx.canvas.addEventListener("click", e => {
-            if (this.options.debugging) {
-                console.log("CLICK", getXandY(e));
-            }
-            this.click = getXandY(e);
-        });
-
-        this.ctx.canvas.addEventListener("wheel", e => {
-            if (this.options.debugging) {
-                console.log("WHEEL", getXandY(e), e.wheelDelta);
-            }
-            if (this.options.prevent.scrolling) {
-                e.preventDefault(); // Prevent Scrolling
-            }
-            this.wheel = e;
-        });
-
-        this.ctx.canvas.addEventListener("contextmenu", e => {
-            if (this.options.debugging) {
-                console.log("RIGHT_CLICK", getXandY(e));
-            }
-            if (this.options.prevent.contextMenu) {
-                e.preventDefault(); // Prevent Context Menu
-            }
-            this.rightclick = getXandY(e);
-        });
-
-        window.addEventListener("keydown", event => this.keys[event.key] = true);
-        window.addEventListener("keyup", event => this.keys[event.key] = false);*/
     };
 
     addEntity(entity) {
@@ -164,6 +140,7 @@ class GameEngine {
         for (let i = this.entities.length - 1; i >= 0; i--) {
             this.entities[i].draw(this.ctx, this);
         }
+        this.camera.draw(this.ctx);
     };
 
     update() {
@@ -176,6 +153,8 @@ class GameEngine {
         // Add new things
         this.entities = this.entities.concat(this.entitiesToAdd);
         this.entitiesToAdd = [];
+        
+        this.camera.update();
     };
 
     loop() {
@@ -183,10 +162,6 @@ class GameEngine {
         this.update();
         this.draw();
     };
-
-    get["deltaTime"]() { return this.clockTick; }
-    //get["width"]() { return this.ctx?.canvas?.width || 0; }
-    //get["height"]() { return this.ctx?.canvas?.height || 0; }
 };
 
 // KV Le was here :)
