@@ -3,13 +3,11 @@ class Ninja {
 		Object.assign(this, { game, x, y });
 		
 		this.game.ninja = this;
-		
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/ninja.png");
-		
 		this.jumping = false;
+		this.hits = 0;
 
 		this.updateBB();
-
 		
 		this.state = 0; // 0 = idle, 1 = walking, 2 = jumping
 		this.facing = 0; // 0 = right, 1 = left
@@ -58,21 +56,6 @@ class Ninja {
 	
 	update() {
 		const TICK = this.game.clockTick;
-        
-        // no left/right inputs -- idle
-		
-		// // slides left
-		// if (this.game.left && !this.game.right && this.game.z) {
-		// 	this.state = 2;
-		// 	this.facing = 1;
-		// 	this.velocity.x -= .45;
-		// }
-		// // moves left
-		// else if (this.game.left && !this.game.right) {
-		// 	this.state = 1;
-		// 	this.facing = 1;
-		// 	this.velocity.x -= .45;
-		//}
 		
 		// slides right
 		//this.game.right && !this.game.left && 
@@ -106,7 +89,6 @@ class Ninja {
 		this.y += this.velocity.y;
 		this.x += this.velocity.x;
 		
-		
 
 		this.updateBB();
 
@@ -138,6 +120,7 @@ class Ninja {
 				
 				if (entity instanceof Coin
 					&& (that.lastBB.right) >= entity.BB.left) {
+						that.hits++;
 						entity.removeFromWorld = true;
 						ASSET_MANAGER.playAsset("./sounds/coin.wav");
 						

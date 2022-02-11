@@ -6,9 +6,11 @@ class SceneManager {
 		
 		this.title = true;
 		this.transition = false;
+		this.death = false;
 		this.level = null;
 		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
 		this.ninja = new Ninja(this.game, 100, 100);
+		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
 		this.loadLevel(levelOne, false, this.title);
 	};
 	
@@ -83,8 +85,9 @@ class SceneManager {
 			this.game.addEntity(new LanternPost(this.game,4399,500));
 			
 			this.game.addEntity(new Coin(this.game, 500, 670));
-			this.game.addEntity(new Coin(this.game, 780, 430));
-			this.game.addEntity(new Coin(this.game, 500, 670));
+			//this.game.addEntity(new Coin(this.game, 950, 430));
+			this.game.addEntity(new Coin(this.game, 1000, 670));
+			this.game.addEntity(new Coin(this.game, 1500, 670));
 
 
 			
@@ -125,6 +128,15 @@ class SceneManager {
 			}
 		}
 		
+		// need to work
+		if (this.death) {
+			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
+				//this.loadLevel(levelOne, false, false);
+				this.transition = true;
+				this.death = false;
+			}
+		}
+		
 		this.updateAudio();
 		
 		let midpoint = PARAMS.CANVAS_WIDTH / 4 - PARAMS.BLOCKWIDTH / 4;
@@ -132,6 +144,25 @@ class SceneManager {
 	};
 	
 	draw(ctx) {
+		ctx.fillStyle = "White";
+		ctx.fillRect(50, 80, 200, 20);
+		if (this.ninja.hits === 0) {
+			ctx.drawImage(this.hp, 9, 399, 278, 51, 50, 80, 200, 20);	
+		}
+		
+		if (this.ninja.hits === 1) {
+			ctx.drawImage(this.hp, 9, 269, 278, 51, 50, 80, 200, 20);
+		}
+		
+		if (this.ninja.hits === 2) {
+			ctx.drawImage(this.hp, 9, 139, 278, 51, 50, 80, 200, 20);
+		}
+		
+		if (this.ninja.hits === 3) {
+			this.death = true;
+		}
+		
+		
 		ctx.font = 'italic small-caps bold 48px cursive';
 		
 		if (this.title && !this.transition) {
@@ -153,6 +184,14 @@ class SceneManager {
 			//ctx.fillRect(690, 660, 300, 50);
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 690 && this.game.mouse.x < 990 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
 			ctx.fillText("CONTINUE", 700, 700);
+		}
+		
+		if (this.death) {
+			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+			ctx.drawImage(this.hp, 9, 9, 278, 51, 50, 80, 200, 20);
+			ctx.fillStyle = "Black";
+			ctx.fillText("You have died!", 350, 400);
+			ctx.fillText("Restart?", 400, 600);
 		}
 	};
 

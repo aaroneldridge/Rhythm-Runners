@@ -13,6 +13,7 @@ ASSET_MANAGER.queueDownload("./sprites/Plant1.png");
 ASSET_MANAGER.queueDownload("./sprites/Pot.png");
 ASSET_MANAGER.queueDownload("./sprites/SPIKES.png");
 ASSET_MANAGER.queueDownload("./sprites/coin.png");
+ASSET_MANAGER.queueDownload("./sprites/hp.png");
 
 // sounds
 ASSET_MANAGER.queueDownload("./sounds/bgm.mp3");
