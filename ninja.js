@@ -121,6 +121,7 @@ class Ninja {
 				if (entity instanceof Coin
 					&& (that.lastBB.right) >= entity.BB.left) {
 						that.hits++;
+						that.score += 100;
 						entity.removeFromWorld = true;
 						ASSET_MANAGER.playAsset("./sounds/coin.wav");
 						
@@ -128,6 +129,11 @@ class Ninja {
 				}
 			}
 		});
+		
+		if (that.hits === 3) {
+			this.game.ninja.velocity.x = 0;
+			this.game.camera.x = 0;
+		};
 	};
 	
 	draw(ctx) {

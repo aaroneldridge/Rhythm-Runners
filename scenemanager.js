@@ -123,17 +123,18 @@ class SceneManager {
 			if (this.game.click.x > 690 && this.game.click.x < 990 && this.game.click.y > 660 && this.game.click.y < 710) {
 				this.transition = false;
 				this.title = false;
+				this.death = false;
 				this.ninja = new Ninja(this.game, 100, 100);
 				this.loadLevel(levelOne, false, false);
 			}
 		}
 		
-		// need to work
 		if (this.death) {
 			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
-				//this.loadLevel(levelOne, false, false);
 				this.transition = true;
 				this.death = false;
+				
+				this.loadLevel(levelOne, true, false);
 			}
 		}
 		
@@ -165,6 +166,8 @@ class SceneManager {
 		
 		ctx.font = 'italic small-caps bold 48px cursive';
 		
+		ctx.fillRect 
+		
 		if (this.title && !this.transition) {
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Black";
@@ -186,11 +189,13 @@ class SceneManager {
 			ctx.fillText("CONTINUE", 700, 700);
 		}
 		
-		if (this.death) {
-			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+		if (this.death && !this.transition) {
+			//ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.drawImage(this.hp, 9, 9, 278, 51, 50, 80, 200, 20);
 			ctx.fillStyle = "Black";
 			ctx.fillText("You have died!", 350, 400);
+			
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
 			ctx.fillText("Restart?", 400, 600);
 		}
 	};
@@ -213,8 +218,6 @@ class SceneManager {
 				this.game.addEntity(new trees_w_o(this.game, 0+(1700*i), 450));
 			case 0:
 				this.game.addEntity(new trees_w(this.game, 0+(1700*i), 450));
-
-			
 
 		};
 
