@@ -16,7 +16,7 @@ class Ninja {
 		this.animations = [];
 		this.loadAnimations();
 		
-		this.velocity = { x: 200,  y: 0 };
+		this.velocity = { x: 0,  y: 0 };
 	};
 	
 	loadAnimations() {
@@ -114,10 +114,11 @@ class Ninja {
 		var that = this;
 		this.game.entities.forEach(function (entity) {
 			if (entity.BB && that.BB.collide(entity.BB)) {
+
 				if (that.velocity.y > 0) { // falling
+
 					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle// landing
 						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
-							console.log("top: " + entity.BB.top + " bottom: " + that.lastBB.bottom );
 							that.y = entity.BB.top - 85;
 							that.velocity.y = 0;
 							that.jumping = false;
@@ -126,17 +127,18 @@ class Ninja {
 
 					}
 
-						//SPRING MECHANICS
-						if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
-						{
-							that.y = entity.BB.top-85;
-							that.velocity.y = -20
-							that.jumping = true;
-						}
+					//SPRING MECHANICS
+					if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
+					{
+						that.y = entity.BB.top-85;
+						that.velocity.y = -20
+						that.jumping = true;
+					}
+
 				}	
 			
 				if(that.velocity.y < 0){
-					if(entity instanceof Platform_Tile // landing
+					if(entity instanceof Platform_Tile // bonking head
 						&& (that.lastBB.top) >= entity.BB.bottom) {
 							that.y = entity.BB.bottom;
 							that.velocity.y = 0;
@@ -149,16 +151,27 @@ class Ninja {
 	};
 	
 	draw(ctx) {
+
+		if(this.state == 3){
+			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+15, 5, 5);
+
+		} else {
+
 		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		
+		}
+
 		if (PARAMS.DEBUG) {
 			ctx.strokeStyle = 'Red';
 			//ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
 		}
+	
 	};
+	
 
 	updateBB() {
 		this.lastBB = this.BB;
 		this.BB = new BoundingBox(this.x, this.y, 32, 110);
-	}
+		};
+		
 };
