@@ -125,6 +125,14 @@ class Ninja {
 								that.y = entity.BB.top - 64;
 
 					}
+
+						//SPRING MECHANICS
+						if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
+						{
+							that.y = entity.BB.top-85;
+							that.velocity.y = -20
+							that.jumping = true;
+						}
 				}	
 			
 				if(that.velocity.y < 0){
