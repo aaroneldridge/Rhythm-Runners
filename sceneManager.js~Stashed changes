@@ -55,43 +55,11 @@ class SceneManager {
 			//spike elevation ground = 690
 
 			//Adding Obstacles, Enemies, and Platforms
-<<<<<<< Updated upstream
-			this.game.addEntity(new Platform_Tile(this.game,500+gap,500));
-			this.game.addEntity(new Platform_Tile(this.game,500+(gap*2),500));
-			this.game.addEntity(new Platform_Tile(this.game,500+(gap*3),500));
-			this.game.addEntity(new Platform_Tile(this.game,500,500));
-
-			this.game.addEntity(new Platform_Tile(this.game,1000+gap,500));
-			this.game.addEntity(new Platform_Tile(this.game,1000+(gap*2),500));
-			this.game.addEntity(new Platform_Tile(this.game,1000+(gap*3),500));
-			this.game.addEntity(new Platform_Tile(this.game,1000,500));
-
-			this.game.addEntity(new Platform_Tile(this.game,1200+gap,300));
-			this.game.addEntity(new Platform_Tile(this.game,1200+(gap*2),300));
-			this.game.addEntity(new Platform_Tile(this.game,1200+(gap*3),300));
-			this.game.addEntity(new Platform_Tile(this.game,1200,300));
-
-			this.game.addEntity(new Platform_Tile(this.game,1500+gap,300));
-			this.game.addEntity(new Platform_Tile(this.game,1500+(gap*2),300));
-			this.game.addEntity(new Platform_Tile(this.game,1500+(gap*3),300));
-			this.game.addEntity(new Platform_Tile(this.game,1500,300));
-
-			this.game.addEntity(new Barrel(this.game,1700,700));
-			this.game.addEntity(new LanternPost(this.game,600,500));
-			this.game.addEntity(new Barrel(this.game,2404,700));
-			this.game.addEntity(new Barrel(this.game,100,700));
-			this.game.addEntity(new Barrel(this.game,9900,700));
-			this.game.addEntity(new Barrel(this.game,3990,700));
-			this.game.addEntity(new LanternPost(this.game,4399,500));
-=======
 			this.game.addEntity(new Platform_Tile(this.game,700+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,700+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,700+(gap*3),500));
-			this.game.addEntity(new Barrel(this.game,1200,500-60))
-
-
 			this.game.addEntity(new Spike(this.game,1100,690));
-			this.game.addEntity(new Spring(this.game,1050,690));
+			this.game.addEntity(new Spike(this.game,1050,690));
 
 			this.game.addEntity(new Platform_Tile(this.game,900+gap,300));
 			this.game.addEntity(new Platform_Tile(this.game,900+(gap*2),300));
@@ -333,9 +301,6 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,15470+gap,450));
 			this.game.addEntity(new Platform_Tile(this.game,15470+(gap*2),450));
 			this.game.addEntity(new Platform_Tile(this.game,15470+(gap*3),450));
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 
 
 			this.game.addEntity(new Spring(this.game,15670,690));
@@ -350,12 +315,11 @@ class SceneManager {
 			this.game.addEntity(new Barrel(this.game,9900,700));
 			this.game.addEntity(new Barrel(this.game,3990,700));
 			this.game.addEntity(new LanternPost(this.game,4399,500));*/
->>>>>>> Stashed changes
 
 
 			
-			
-			for(var i = 0; i < 120; i++){
+			//Adding grass flooring
+			for(var i = 0; i < 1000; i++){
 				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
 			}
 			//Adding Random Backgrounds
