@@ -153,7 +153,7 @@ class Ninja {
 	draw(ctx) {
 
 		if(this.state == 3){
-			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+15, 5, 5);
+			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+25, 5, 5);
 
 		} else {
 
