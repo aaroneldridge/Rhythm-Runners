@@ -3,11 +3,13 @@ class Ninja {
 		Object.assign(this, { game, x, y });
 		
 		this.game.ninja = this;
+		
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/ninja.png");
+		
 		this.jumping = false;
-		this.hits = 0;
 
 		this.updateBB();
+
 		
 		this.state = 0; // 0 = idle, 1 = walking, 2 = jumping
 		this.facing = 0; // 0 = right, 1 = left
@@ -56,6 +58,21 @@ class Ninja {
 	
 	update() {
 		const TICK = this.game.clockTick;
+        
+        // no left/right inputs -- idle
+		
+		// // slides left
+		// if (this.game.left && !this.game.right && this.game.z) {
+		// 	this.state = 2;
+		// 	this.facing = 1;
+		// 	this.velocity.x -= .45;
+		// }
+		// // moves left
+		// else if (this.game.left && !this.game.right) {
+		// 	this.state = 1;
+		// 	this.facing = 1;
+		// 	this.velocity.x -= .45;
+		//}
 		
 		// slides right
 		//this.game.right && !this.game.left && 
@@ -63,13 +80,13 @@ class Ninja {
 			this.state = 2;
 			this.facing = 0;
 			this.velocity.x = 2;
-		} else {
+		}
 		// moves right
 		//else if (this.game.right && !this.game.left) {
 			this.state = 1;
 			this.facing = 0;
 			this.velocity.x = 3;
-		}
+		//}
 		
 		// attacks
 		if (this.game.x) {
@@ -89,6 +106,7 @@ class Ninja {
 		this.y += this.velocity.y;
 		this.x += this.velocity.x;
 		
+		
 
 		this.updateBB();
 
@@ -96,10 +114,11 @@ class Ninja {
 		var that = this;
 		this.game.entities.forEach(function (entity) {
 			if (entity.BB && that.BB.collide(entity.BB)) {
+
 				if (that.velocity.y > 0) { // falling
+
 					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle// landing
 						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
-							console.log("top: " + entity.BB.top + " bottom: " + that.lastBB.bottom );
 							that.y = entity.BB.top - 85;
 							that.velocity.y = 0;
 							that.jumping = false;
@@ -107,46 +126,52 @@ class Ninja {
 								that.y = entity.BB.top - 64;
 
 					}
+
+					//SPRING MECHANICS
+					if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
+					{
+						that.y = entity.BB.top-85;
+						that.velocity.y = -20
+						that.jumping = true;
+					}
+
 				}	
 			
 				if(that.velocity.y < 0){
-					if(entity instanceof Platform_Tile // landing
+					if(entity instanceof Platform_Tile // bonking head
 						&& (that.lastBB.top) >= entity.BB.bottom) {
 							that.y = entity.BB.bottom;
 							that.velocity.y = 0;
 								
 					}
 				}
-				
-				if (entity instanceof Coin
-					&& (that.lastBB.right) >= entity.BB.left) {
-						that.hits++;
-						that.score += 100;
-						entity.removeFromWorld = true;
-						ASSET_MANAGER.playAsset("./sounds/coin.wav");
-						
-						that.updateBB();
-				}
 			}
+
 		});
-		
-		if (that.hits === 3) {
-			this.game.ninja.velocity.x = 0;
-			this.game.camera.x = 0;
-		};
 	};
 	
 	draw(ctx) {
+
+		if(this.state == 3){
+			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+25, 5, 5);
+
+		} else {
+
 		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		
+		}
+
 		if (PARAMS.DEBUG) {
 			ctx.strokeStyle = 'Red';
 			//ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
 		}
+	
 	};
+	
 
 	updateBB() {
 		this.lastBB = this.BB;
 		this.BB = new BoundingBox(this.x, this.y, 32, 110);
-	}
+		};
+		
 };
