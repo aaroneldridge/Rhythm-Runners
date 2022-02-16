@@ -55,7 +55,6 @@ class SceneManager {
 			//spike elevation ground = 690
 
 			//Adding Obstacles, Enemies, and Platforms
-<<<<<<< Updated upstream
 			this.game.addEntity(new Platform_Tile(this.game,500+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,500+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,500+(gap*3),500));
@@ -83,7 +82,6 @@ class SceneManager {
 			this.game.addEntity(new Barrel(this.game,9900,700));
 			this.game.addEntity(new Barrel(this.game,3990,700));
 			this.game.addEntity(new LanternPost(this.game,4399,500));
-=======
 			this.game.addEntity(new Platform_Tile(this.game,700+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,700+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,700+(gap*3),500));
@@ -333,9 +331,7 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,15470+gap,450));
 			this.game.addEntity(new Platform_Tile(this.game,15470+(gap*2),450));
 			this.game.addEntity(new Platform_Tile(this.game,15470+(gap*3),450));
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
+
 
 
 			this.game.addEntity(new Spring(this.game,15670,690));
@@ -350,7 +346,6 @@ class SceneManager {
 			this.game.addEntity(new Barrel(this.game,9900,700));
 			this.game.addEntity(new Barrel(this.game,3990,700));
 			this.game.addEntity(new LanternPost(this.game,4399,500));*/
->>>>>>> Stashed changes
 
 
 			
