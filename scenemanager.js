@@ -48,7 +48,7 @@ class SceneManager {
 			//this.ninja = new Ninja(this.game, 0, 500);
 			
 			// ninja spawns near front of flag
-			this.ninja = new Ninja(this.game, 21000, 500);
+			this.ninja = new Ninja(this.game, 0, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -323,7 +323,7 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*16),450));
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*17),450))
 
-			//this.game.addEntity(new Spring(this.game,15300+150,690));
+			this.game.addEntity(new Spring(this.game,15300+150,690));
 			this.game.addEntity(new Spike(this.game,15700+gap+150,690));
 			this.game.addEntity(new Spike(this.game,15700+(gap*2)+150,690));
 			this.game.addEntity(new Spike(this.game,15700+(gap*3)+150,690));
