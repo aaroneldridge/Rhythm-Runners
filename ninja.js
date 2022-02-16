@@ -119,6 +119,7 @@ class Ninja {
 
 					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle// landing
 						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
+							console.count("WHAT");
 							that.y = entity.BB.top - 85;
 							that.velocity.y = 0;
 							that.jumping = false;

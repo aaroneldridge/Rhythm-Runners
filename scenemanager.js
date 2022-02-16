@@ -40,7 +40,7 @@ class SceneManager {
 				}
 			}
 			
-			this.ninja = new Ninja(this.game, 15000,500);
+			this.ninja = new Ninja(this.game, 0,500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
