@@ -6,9 +6,12 @@ class SceneManager {
 		
 		this.title = true;
 		this.transition = false;
+		this.death = false;
 		this.level = null;
+		this.flag = false;
 		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
 		this.ninja = new Ninja(this.game, 100, 100);
+		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
 		this.loadLevel(levelOne, false, this.title);
 	};
 	
@@ -41,7 +44,7 @@ class SceneManager {
 			}
 
 			//17000
-			this.ninja = new Ninja(this.game, 19000,500);
+			this.ninja = new Ninja(this.game, 21000, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -316,7 +319,7 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*16),450));
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*17),450))
 
-			this.game.addEntity(new Spring(this.game,15300+150,690));
+			//this.game.addEntity(new Spring(this.game,15300+150,690));
 			this.game.addEntity(new Spike(this.game,15700+gap+150,690));
 			this.game.addEntity(new Spike(this.game,15700+(gap*2)+150,690));
 			this.game.addEntity(new Spike(this.game,15700+(gap*3)+150,690));
@@ -398,7 +401,12 @@ class SceneManager {
 
 			
 
-
+			this.game.addEntity(new Coin(this.game, 500, 670));
+			//this.game.addEntity(new Coin(this.game, 950, 430));
+			//this.game.addEntity(new Coin(this.game, 1000, 670));
+			this.game.addEntity(new Coin(this.game, 1500, 670));
+			
+			this.game.addEntity(new Flag(this.game, 23000, 670));
 
 
 
@@ -409,6 +417,8 @@ class SceneManager {
 			this.game.addEntity(new Barrel(this.game,9900,700));
 			this.game.addEntity(new Barrel(this.game,3990,700));
 			this.game.addEntity(new LanternPost(this.game,4399,500));*/
+			
+			
 
 
 			
@@ -444,8 +454,20 @@ class SceneManager {
 			if (this.game.click.x > 690 && this.game.click.x < 990 && this.game.click.y > 660 && this.game.click.y < 710) {
 				this.transition = false;
 				this.title = false;
+				this.death = false;
 				this.ninja = new Ninja(this.game, 100, 100);
 				this.loadLevel(levelOne, false, false);
+			}
+		}
+		
+		if (this.death) {
+			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
+				this.transition = true;
+				this.death = false;
+				
+				ASSET_MANAGER.pauseBackgroundMusic();
+				
+				this.loadLevel(levelOne, true, false);
 			}
 		}
 		
@@ -456,14 +478,35 @@ class SceneManager {
 	};
 	
 	draw(ctx) {
+		ctx.fillStyle = "White";
+		ctx.fillRect(50, 80, 200, 20);
+		if (this.ninja.hits === 0) {
+			ctx.drawImage(this.hp, 9, 399, 278, 51, 50, 80, 200, 20);	
+		}
+		
+		if (this.ninja.hits === 1) {
+			ctx.drawImage(this.hp, 9, 269, 278, 51, 50, 80, 200, 20);
+		}
+		
+		if (this.ninja.hits === 2) {
+			ctx.drawImage(this.hp, 9, 139, 278, 51, 50, 80, 200, 20);
+		}
+		
+		if (this.ninja.hits === 3) {
+			this.death = true;
+		}
+		
+		if (this.ninja.flagTouch === true) {
+			this.flag = true;
+		}
+		
 		ctx.font = 'italic small-caps bold 48px cursive';
 		
 		if (this.title && !this.transition) {
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Black";
-			ctx.fillText("TEMPORARY GAME NAME", 200, 200);
+			ctx.fillText("Rhythm Runners", 300, 300);
 			
-			//ctx.fillRect(300, 660, 150, 50);
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
 			ctx.fillText("PLAY", 425, 700);
 		}
@@ -477,6 +520,29 @@ class SceneManager {
 			//ctx.fillRect(690, 660, 300, 50);
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 690 && this.game.mouse.x < 990 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
 			ctx.fillText("CONTINUE", 700, 700);
+		}
+		
+		if (this.death && !this.transition) {
+			//ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+			ctx.drawImage(this.hp, 9, 9, 278, 51, 50, 80, 200, 20);
+			ctx.fillStyle = "Black";
+			ctx.fillText("You have died!", 350, 400);
+			
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
+			ctx.fillText("Restart?", 400, 600);
+		}
+		
+		if (this.flag) {
+			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+			
+			ASSET_MANAGER.pauseBackgroundMusic();
+			
+			setTimeout(function(){
+				ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
+			}, 100);
+			
+			ctx.fillStyle = "Black";
+			ctx.fillText("Level One completed!", 300, 300);
 		}
 	};
 
@@ -498,13 +564,6 @@ class SceneManager {
 				this.game.addEntity(new trees_w_o(this.game, 0+(1700*i), 450));
 			case 0:
 				this.game.addEntity(new trees_w(this.game, 0+(1700*i), 450));
-
-			
-
 		};
-
-
 	};
-
-
 };

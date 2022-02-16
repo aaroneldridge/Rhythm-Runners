@@ -141,19 +141,3 @@ class LanternPost{
 		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x-400,this.y,64,256);
 	};
 };
-
-class Spike{
-	constructor(game, x, y) {
-		Object.assign(this, { game, x, y});
-		
-		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SPIKES.png");
-	};
-	
-	update() {
-		
-	};
-	
-	draw(ctx) {
-		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x-400,this.y,64,64);
-	};
-};

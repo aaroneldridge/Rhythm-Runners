@@ -3,10 +3,10 @@ class Ninja {
 		Object.assign(this, { game, x, y });
 		
 		this.game.ninja = this;
-		
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/ninja.png");
-		
 		this.jumping = false;
+		this.hits = 0;
+		this.flagTouch = false;
 
 		this.updateBB();
 
@@ -58,21 +58,6 @@ class Ninja {
 	
 	update() {
 		const TICK = this.game.clockTick;
-        
-        // no left/right inputs -- idle
-		
-		// // slides left
-		// if (this.game.left && !this.game.right && this.game.z) {
-		// 	this.state = 2;
-		// 	this.facing = 1;
-		// 	this.velocity.x -= .45;
-		// }
-		// // moves left
-		// else if (this.game.left && !this.game.right) {
-		// 	this.state = 1;
-		// 	this.facing = 1;
-		// 	this.velocity.x -= .45;
-		//}
 		
 		// slides right
 		//this.game.right && !this.game.left && 
@@ -128,14 +113,14 @@ class Ninja {
 					}
 
 					//SPRING MECHANICS
-					if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
+					/*if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
 					{
 						that.y = entity.BB.top-85;
 						that.velocity.y = -20
 						that.jumping = true;
-					}
+					}*/
 
-				}	
+				}
 			
 				if(that.velocity.y < 0){
 					if(entity instanceof Platform_Tile // bonking head
@@ -145,6 +130,29 @@ class Ninja {
 								
 					}
 				}
+				
+				if (entity instanceof Coin
+					&& (that.lastBB.right) >= entity.BB.left) {
+						//that.score += 100;
+						entity.removeFromWorld = true;
+						ASSET_MANAGER.playAsset("./sounds/coin.wav");
+						
+						that.updateBB();
+				}
+				
+				if (entity instanceof Spike
+					&& (that.lastBB.right) >= entity.BB.left) {
+						that.hits++;
+						
+						that.updateBB();
+					}
+					
+				if (entity instanceof Flag
+					&& (that.lastBB.right) >= entity.BB.left) {
+						that.flagTouch = true;
+						
+						that.updateBB();
+					}
 			}
 
 		});
