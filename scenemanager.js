@@ -44,6 +44,10 @@ class SceneManager {
 			}
 
 			//17000
+			// ninja spawns at beginning of level
+			//this.ninja = new Ninja(this.game, 0, 500);
+			
+			// ninja spawns near front of flag
 			this.ninja = new Ninja(this.game, 21000, 500);
 			
 			var ninja = false;
