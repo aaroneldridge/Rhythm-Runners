@@ -406,12 +406,40 @@ class SceneManager {
 			
 
 			this.game.addEntity(new Coin(this.game, 500, 670));
-			//this.game.addEntity(new Coin(this.game, 950, 430));
-			//this.game.addEntity(new Coin(this.game, 1000, 670));
-			this.game.addEntity(new Coin(this.game, 1500, 670));
-			
-			this.game.addEntity(new Flag(this.game, 23000, 670));
+			this.game.addEntity(new Coin(this.game, 950, 430));
+			this.game.addEntity(new Coin(this.game, 1200, 670));
+			this.game.addEntity(new Coin(this.game, 1600, 400));
+			this.game.addEntity(new Coin(this.game, 1900, 50));
+			this.game.addEntity(new Coin(this.game, 2500, 200));
+			this.game.addEntity(new Coin(this.game, 3000, 300));
+			this.game.addEntity(new Coin(this.game, 3500 , 400));
+			this.game.addEntity(new Coin(this.game, 3800+(gap*1), 670));
+			this.game.addEntity(new Coin(this.game, 3800+(gap*2), 670));
+			this.game.addEntity(new Coin(this.game, 3800+(gap*3), 670));
+			this.game.addEntity(new Coin(this.game, 3800+(gap*4), 670));
+			this.game.addEntity(new Coin(this.game, 5200, 670));
+			this.game.addEntity(new Coin(this.game, 6000, 200));
+			this.game.addEntity(new Coin(this.game, 6500, 200));
+			this.game.addEntity(new Coin(this.game, 7000, 200));
+			this.game.addEntity(new Coin(this.game, 7500, 550));
+			this.game.addEntity(new Coin(this.game, 7900, 550));
+			this.game.addEntity(new Coin(this.game, 9000, 400));
+			this.game.addEntity(new Coin(this.game, 10000, 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*1), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*2), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*3), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*4), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*5), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*6), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*7), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*8), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*9), 200));
+			this.game.addEntity(new Coin(this.game, 16000+(gap*10), 200));
+			this.game.addEntity(new Coin(this.game, 19000, 300));
+			this.game.addEntity(new Coin(this.game, 19050, 400));
 
+			this.game.addEntity(new Flag(this.game, 23000, 670));
+			
 
 
 			/*this.game.addEntity(new Barrel(this.game,1700,700));
