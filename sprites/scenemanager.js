@@ -9,7 +9,6 @@ class SceneManager {
 		this.death = false;
 		this.level = null;
 		this.flag = false;
-		this.end = false;
 		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
 		this.ninja = new Ninja(this.game, 100, 100);
 		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
@@ -476,17 +475,6 @@ class SceneManager {
 			}
 		}
 		
-		if (this.end) {
-			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
-				this.transition = true;
-				this.death = false;
-				
-				ASSET_MANAGER.pauseBackgroundMusic();
-				
-				this.loadLevel(levelOne, true, false);
-			}
-		}
-		
 		this.updateAudio();
 		
 		let midpoint = PARAMS.CANVAS_WIDTH / 4 - PARAMS.BLOCKWIDTH / 4;
@@ -539,8 +527,9 @@ class SceneManager {
 		}
 		
 		if (this.death && !this.transition) {
-			//ctx.drawImage(this.black, 0, 0, 620, 349, 0, 0, 1024, 768);
+			//ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.drawImage(this.hp, 9, 9, 278, 51, 50, 80, 200, 20);
+			ctx.drawImage(this.black, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Red";
 			ctx.fillText("You have died!", 350, 400);
 			
@@ -549,8 +538,6 @@ class SceneManager {
 		}
 		
 		if (this.flag) {
-			
-			
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			
 			ASSET_MANAGER.pauseBackgroundMusic();
@@ -559,15 +546,10 @@ class SceneManager {
 				ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
 			}, 100);
 			
-			// To show completion
 			ctx.fillStyle = "Black";
 			ctx.fillText("Level One completed!", 300, 300);
-			
-			// To go back to the beginning
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
 			ctx.fillText("Restart?", 400, 600);
-			
-			this.end = true;
 		}
 	};
 
