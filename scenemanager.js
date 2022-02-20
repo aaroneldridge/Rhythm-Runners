@@ -475,6 +475,17 @@ class SceneManager {
 			}
 		}
 		
+		if (this.flag) {
+			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
+				this.transition = true;
+				this.death = false;
+				
+				ASSET_MANAGER.pauseBackgroundMusic();
+				
+				this.loadLevel(levelOne, true, false);
+			}
+		}
+		
 		this.updateAudio();
 		
 		let midpoint = PARAMS.CANVAS_WIDTH / 4 - PARAMS.BLOCKWIDTH / 4;
@@ -527,12 +538,12 @@ class SceneManager {
 		}
 		
 		if (this.death && !this.transition) {
-			//ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+			ctx.drawImage(this.black, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.drawImage(this.hp, 9, 9, 278, 51, 50, 80, 200, 20);
-			ctx.fillStyle = "Black";
+			ctx.fillStyle = "Red";
 			ctx.fillText("You have died!", 350, 400);
 			
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Red";
 			ctx.fillText("Restart?", 400, 600);
 		}
 		
