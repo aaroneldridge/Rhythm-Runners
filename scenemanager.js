@@ -476,7 +476,7 @@ class SceneManager {
 			}
 		}
 		
-		if (this.end) {
+		if (this.flag && this.end) {
 			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
 				this.transition = true;
 				this.death = false;
@@ -514,6 +514,7 @@ class SceneManager {
 		
 		if (this.ninja.flagTouch === true) {
 			this.flag = true;
+			this.end = true;
 		}
 		
 		ctx.font = 'italic small-caps bold 48px cursive';
@@ -566,8 +567,6 @@ class SceneManager {
 			// To go back to the beginning
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
 			ctx.fillText("Restart?", 400, 600);
-			
-			this.end = true;
 		}
 	};
 
