@@ -9,6 +9,7 @@ class SceneManager {
 		this.death = false;
 		this.level = null;
 		this.flag = false;
+		this.end = false;
 		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
 		this.ninja = new Ninja(this.game, 100, 100);
 		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
@@ -475,7 +476,7 @@ class SceneManager {
 			}
 		}
 		
-		if (this.flag) {
+		if (this.end) {
 			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
 				this.transition = true;
 				this.death = false;
@@ -548,6 +549,8 @@ class SceneManager {
 		}
 		
 		if (this.flag) {
+			
+			
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			
 			ASSET_MANAGER.pauseBackgroundMusic();
@@ -564,6 +567,7 @@ class SceneManager {
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
 			ctx.fillText("Restart?", 400, 600);
 			
+			this.end = true;
 		}
 	};
 
