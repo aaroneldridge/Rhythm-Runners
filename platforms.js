@@ -74,7 +74,7 @@ class Spike{
 		Object.assign(this, { game, x, y});
 		
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SPIKES.png");
-		this.BB = new BoundingBox(this.x-34, this.y, 32+34, 32);
+		this.BB = new BoundingBox(this.x, this.y, 32, 32);
 	};
 	
 	update() {
@@ -82,7 +82,7 @@ class Spike{
 	};
 	
 	draw(ctx) {
-		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x - 400, this.y, 64, 64);
+		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x, this.y, 64, 64);
 	};
 };
 

@@ -66,8 +66,8 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,700+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,700+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,700+(gap*3),500));
-			this.game.addEntity(new Spike(this.game,1100,690));
-			this.game.addEntity(new Spike(this.game,1050,690));
+			this.game.addEntity(new Spike(this.game,1100-400,690));
+			this.game.addEntity(new Spike(this.game,1050-400,690));
 
 			this.game.addEntity(new Platform_Tile(this.game,900+gap,300));
 			this.game.addEntity(new Platform_Tile(this.game,900+(gap*2),300));
@@ -93,8 +93,8 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,2500+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,2500+(gap*3),500));
 
-			this.game.addEntity(new Spike(this.game,3200,695));
-			this.game.addEntity(new Spike(this.game,3250,695));
+			this.game.addEntity(new Spike(this.game,3200-400,695));
+			this.game.addEntity(new Spike(this.game,3250-400,695));
 
 			this.game.addEntity(new Platform_Tile(this.game,2900+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,2900+(gap*2),500));
@@ -111,9 +111,9 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,3800+gap,600));
 			this.game.addEntity(new Platform_Tile(this.game,3800+(gap*2),600));
 			this.game.addEntity(new Platform_Tile(this.game,3800+(gap*3),600));
-			this.game.addEntity(new Spike(this.game,4270,540));
-			this.game.addEntity(new Spike(this.game,4300,540));
-			this.game.addEntity(new Spike(this.game,4365,540));
+			this.game.addEntity(new Spike(this.game,4270-400,540));
+			this.game.addEntity(new Spike(this.game,4300-400,540));
+			this.game.addEntity(new Spike(this.game,4365-400,540));
 
 			this.game.addEntity(new Platform_Tile(this.game,4200+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,4200+(gap*2),500));
@@ -123,13 +123,13 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,4400+(gap*2),300));
 			this.game.addEntity(new Platform_Tile(this.game,4400+(gap*3),300));
 
-			this.game.addEntity(new Spike(this.game,5400,695));
-			this.game.addEntity(new Spike(this.game,5450,695));
-			this.game.addEntity(new Spike(this.game,5470,695)); 
+			this.game.addEntity(new Spike(this.game,5400-400,695));
+			this.game.addEntity(new Spike(this.game,5450-400,695));
+			this.game.addEntity(new Spike(this.game,5470-400,695)); 
 
-			this.game.addEntity(new Spike(this.game,5700,695));
-			this.game.addEntity(new Spike(this.game,5750,695));
-			this.game.addEntity(new Spike(this.game,5770,695)); 
+			this.game.addEntity(new Spike(this.game,5700-400,695));
+			this.game.addEntity(new Spike(this.game,5750-400,695));
+			this.game.addEntity(new Spike(this.game,5770-400,695)); 
 
 			this.game.addEntity(new Platform_Tile(this.game,5700+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,5700+(gap*2),500));
@@ -159,17 +159,17 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,7200+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,7200+(gap*3),500));
 
-			this.game.addEntity(new Spike(this.game,7870,695));
-			this.game.addEntity(new Spike(this.game,7920,695));
-			this.game.addEntity(new Spike(this.game,7940,695)); 
+			this.game.addEntity(new Spike(this.game,7870-400,695));
+			this.game.addEntity(new Spike(this.game,7920-400,695));
+			this.game.addEntity(new Spike(this.game,7940-400,695)); 
 
 			this.game.addEntity(new Platform_Tile(this.game,7600+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,7600+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,7600+(gap*3),500));
 
-			this.game.addEntity(new Spike(this.game,8270,695));
-			this.game.addEntity(new Spike(this.game,8320,695));
-			this.game.addEntity(new Spike(this.game,8340,695)); 
+			this.game.addEntity(new Spike(this.game,8270-400,695));
+			this.game.addEntity(new Spike(this.game,8320-400,695));
+			this.game.addEntity(new Spike(this.game,8340-400,695)); 
 
 			this.game.addEntity(new Platform_Tile(this.game,8000+gap,500));
 			this.game.addEntity(new Platform_Tile(this.game,8000+(gap*2),500));
@@ -217,12 +217,12 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,11000+(gap*4),600));
 			this.game.addEntity(new Platform_Tile(this.game,11000+(gap*5),600));
 			this.game.addEntity(new Platform_Tile(this.game,11000+(gap*6),600));
-			this.game.addEntity(new Spike(this.game,11470,540));
-			this.game.addEntity(new Spike(this.game,11520,540));
-			this.game.addEntity(new Spike(this.game,11570,540));
-			this.game.addEntity(new Spike(this.game,11610,540));
-			this.game.addEntity(new Spike(this.game,11660,540));
-			this.game.addEntity(new Spike(this.game,11720,540));
+			this.game.addEntity(new Spike(this.game,11470-400,540));
+			this.game.addEntity(new Spike(this.game,11520-400,540));
+			this.game.addEntity(new Spike(this.game,11570-400,540));
+			this.game.addEntity(new Spike(this.game,11610-400,540));
+			this.game.addEntity(new Spike(this.game,11660-400,540));
+			this.game.addEntity(new Spike(this.game,11720-400,540));
 
 			this.game.addEntity(new Platform_Tile(this.game,11500+(gap*5),200));
 			this.game.addEntity(new Platform_Tile(this.game,11500+(gap*6),300));
@@ -325,23 +325,23 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*17),450))
 
 			this.game.addEntity(new Spring(this.game,15300+150,690));
-			this.game.addEntity(new Spike(this.game,15700+gap+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*2)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*3)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*4)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*5)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*6)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*7)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*8)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*9)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*10)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*11)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*12)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*13)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*14)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*15)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*16)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*17)+150,690));
+			this.game.addEntity(new Spike(this.game,15700+gap+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*2)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*3)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*4)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*5)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*6)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*7)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*8)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*9)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*10)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*11)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*12)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*13)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*14)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*15)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*16)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*17)+150-400,690));
 
 			this.game.addEntity(new Platform_Tile(this.game,17600,690));
 			this.game.addEntity(new Platform_Tile(this.game,17600+gap,690-gap));
@@ -500,16 +500,18 @@ class SceneManager {
 			ctx.drawImage(this.hp, 9, 399, 278, 51, 50, 80, 200, 20);	
 		}
 		
-		if (this.ninja.hits === 1) {
+		if (this.ninja.hits === 5) {
 			ctx.drawImage(this.hp, 9, 269, 278, 51, 50, 80, 200, 20);
 		}
 		
-		if (this.ninja.hits === 2) {
+		if (this.ninja.hits === 10) {
 			ctx.drawImage(this.hp, 9, 139, 278, 51, 50, 80, 200, 20);
 		}
 		
-		if (this.ninja.hits === 3) {
+		if (this.ninja.hits === 15) {
 			this.death = true;
+			this.ninja.velocity.x = 0;
+			this.ninja.state = 2;
 		}
 		
 		if (this.ninja.flagTouch === true) {
