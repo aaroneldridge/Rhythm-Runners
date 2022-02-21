@@ -39,7 +39,7 @@ class Coin {
 	constructor(game, x, y) {
 		Object.assign(this, { game, x, y});
 		
-		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/coin.png");
+		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/Coin1.png");
 		this.BB = new BoundingBox(this.x-34, this.y, 32+34, 32);
 	};
 	
@@ -49,6 +49,27 @@ class Coin {
 	
 	draw(ctx) {
 		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x, this.y, 64, 64);
+	}
+};
+
+
+class CoinCount {
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y});
+		
+		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/Coin1.png");
+		this.BB = new BoundingBox(this.x-34, this.y, 32+34, 32);
+		this.coinCount = 0;
+	};
+	
+	update() {
+		
+	};
+	
+	draw(ctx) {
+		ctx.drawImage(this.spritesheet, 420, 50, 64, 64); 
+		ctx.fillStyle = "Black";
+        ctx.fillText(this.coinCount,  this.x, this.y );
 	}
 };
 
@@ -74,7 +95,7 @@ class Spike{
 		Object.assign(this, { game, x, y});
 		
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SPIKES.png");
-		this.BB = new BoundingBox(this.x-34, this.y, 32+34, 32);
+		this.BB = new BoundingBox(this.x, this.y, 32, 32);
 	};
 	
 	update() {
@@ -82,7 +103,7 @@ class Spike{
 	};
 	
 	draw(ctx) {
-		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x - 400, this.y, 64, 64);
+		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x, this.y, 64, 64);
 	};
 };
 
@@ -91,7 +112,7 @@ class Flag{
 		Object.assign(this, { game, x, y});
 		
 		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/Flag.png");
-		this.BB = new BoundingBox(this.x-34, this.y, 32+34, 32);
+		this.BB = new BoundingBox(this.x, this.y, 32, 32);
 	};
 	
 	update() {
@@ -99,6 +120,6 @@ class Flag{
 	};
 	
 	draw(ctx) {
-		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x - 400, this.y, 64, 64);
+		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x, this.y, 64, 64);
 	};
 };
