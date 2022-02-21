@@ -7,7 +7,6 @@ class Ninja {
 		this.jumping = false;
 		this.hits = 0;
 		this.flagTouch = false;
-
 		this.updateBB();
 
 		
@@ -17,6 +16,11 @@ class Ninja {
 		this.loadAnimations();
 		
 		this.velocity = { x: 0,  y: 0 };
+		this.velocity.x = 3;
+		
+		this.state = 1;
+		this.facing = 0;
+		this.canJump = true;
 	};
 	
 	loadAnimations() {
@@ -59,30 +63,24 @@ class Ninja {
 	update() {
 		const TICK = this.game.clockTick;
 		
-		// slides right
-		//this.game.right && !this.game.left && 
-		if (this.game.z) {
-			this.state = 2;
-			this.facing = 0;
-			this.velocity.x = 2;
-		}
-		// moves right
-		//else if (this.game.right && !this.game.left) {
-			this.state = 1;
-			this.facing = 0;
-			this.velocity.x = 3;
-		//}
+
+		// if (this.game.z) {
+		// 	this.state = 2;
+		// 	this.facing = 0;
+		// 	this.velocity.x = 2;
+		// }
 		
-		// attacks
-		if (this.game.x) {
-			this.state = 3;			
-			ASSET_MANAGER.playAsset("./sounds/attack.wav");
-		}
+		
+		// // attacks
+		// if (this.game.x) {
+		// 	this.state = 3;			
+		// 	ASSET_MANAGER.playAsset("./sounds/attack.wav");
+		// }
 		
 		// jumping
-		if (this.game.space && this.jumping == false) {
+		if (this.game.space && this.jumping == false && this.canJump) {
 			//this.state = 2;
-			this.velocity.y -= 13;
+			this.velocity.y -= 13; 
 			this.jumping = true;
 			ASSET_MANAGER.playAsset("./sounds/jump.wav");
 		}
@@ -119,6 +117,15 @@ class Ninja {
 
 					}
 
+					if(that.velocity.y < 0){
+						if(entity instanceof Platform_Tile // bonking head
+							&& (that.lastBB.top) >= entity.BB.bottom) {
+								that.y = entity.BB.bottom;
+								that.velocity.y = 0;
+									
+						}
+					}
+
 					//SPRING MECHANICS
 					if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
 					{
@@ -128,16 +135,8 @@ class Ninja {
 					}
 
 				}
-			
-				if(that.velocity.y < 0){
-					if(entity instanceof Platform_Tile // bonking head
-						&& (that.lastBB.top) >= entity.BB.bottom) {
-							that.y = entity.BB.bottom;
-							that.velocity.y = 0;
-								
-					}
-				}
 				
+				//COIN
 				if (entity instanceof Coin
 					&& (that.lastBB.right) >= entity.BB.left) {
 						//that.score += 100;
@@ -147,19 +146,18 @@ class Ninja {
 						that.updateBB();
 				}
 				
-				if (entity instanceof Spike
-					&& (that.lastBB.right) >= entity.BB.left) {
+				//SPIKE
+				if (entity instanceof Spike) {
+						console.log("spikes");
 						that.hits++;
-						entity.BB = new BoundingBox(null, null, null, null);
-						
-						that.updateBB();
-					}
-					
+						entity.BB = new BoundingBox(null,null,null,null);
+				}
+
+
+				//FLAG END GAME					
 				if (entity instanceof Flag
 					&& (that.lastBB.right) >= entity.BB.left) {
 						that.flagTouch = true;
-						
-						that.updateBB();
 					}
 			}
 
@@ -167,9 +165,10 @@ class Ninja {
 	};
 	
 	draw(ctx) {
-
-		if(this.state == 3){
+		if (this.state == 3) {
 			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+25, 5, 5);
+		} else if (this.state == 2) {
+			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+30, 5, 5);
 		} else {
 			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		}
