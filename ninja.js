@@ -71,7 +71,7 @@ class Ninja {
 		this.velocity.y += .3; // gravity
 		
 		if (this.hits === 3) {
-			this.state = 0;
+			this.state = 2;
 			this.velocity.x = 0;
 			//ASSET_MANAGER.pauseBackgroundMusic();
 		}
