@@ -68,7 +68,7 @@ class CoinCount {
 	
 	draw(ctx) {
 		ctx.drawImage(this.spritesheet, 420, 50, 64, 64); 
-		ctx.fillStyle = "Black";
+		ctx.fillStyle = "White";
         ctx.fillText(this.coinCount,  this.x, this.y );
 	}
 };
