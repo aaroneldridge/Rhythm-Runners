@@ -7,6 +7,10 @@ class Ninja {
 		this.jumping = false;
 		this.hits = 0;
 		this.flagTouch = false;
+<<<<<<< HEAD
+=======
+		this.coinCounter = new CoinCount(this.game, 500, 100);
+>>>>>>> merit
 		this.updateBB();
 
 		
@@ -14,7 +18,7 @@ class Ninja {
 		this.facing = 0; // 0 = right, 1 = left
 		this.animations = [];
 		this.loadAnimations();
-		
+
 		this.velocity = { x: 0,  y: 0 };
 		this.velocity.x = 3;
 		
@@ -113,6 +117,7 @@ class Ninja {
 					&& (that.lastBB.right) >= entity.BB.left) {
 						//that.score += 100;
 						entity.removeFromWorld = true;
+						that.coinCounter.coinCount ++;
 						ASSET_MANAGER.playAsset("./sounds/coin.wav");
 						
 						that.updateBB();
@@ -161,7 +166,7 @@ class Ninja {
 			ctx.strokeStyle = 'Red';
 			//ctx.strokeRect(this.BB.x - this.game.camera.x, this.BB.y, this.BB.width, this.BB.height);
 		}
-	
+		this.coinCounter.draw(ctx);
 	};
 	
 

@@ -14,6 +14,7 @@ ASSET_MANAGER.queueDownload("./sprites/Pot.png");
 ASSET_MANAGER.queueDownload("./sprites/SPIKES.png");
 ASSET_MANAGER.queueDownload("./sprites/Spring.png");
 ASSET_MANAGER.queueDownload("./sprites/coin.png");
+ASSET_MANAGER.queueDownload("./sprites/Coin1.png");
 ASSET_MANAGER.queueDownload("./sprites/hp.png");
 ASSET_MANAGER.queueDownload("./sprites/Flag.png");
 
