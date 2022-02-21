@@ -105,7 +105,7 @@ class Ninja {
 		this.game.entities.forEach(function (entity) {
 			if (entity.BB && that.BB.collide(entity.BB)) {
 
-				if (that.velocity.y > 0) { // falling
+				if (that.velocity.y	 > 0) { // falling
 
 					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle// landing
 						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
@@ -115,15 +115,6 @@ class Ninja {
 							if(entity instanceof Grass_Middle)
 								that.y = entity.BB.top - 64;
 
-					}
-
-					if(that.velocity.y < 0){
-						if(entity instanceof Platform_Tile // bonking head
-							&& (that.lastBB.top) >= entity.BB.bottom) {
-								that.y = entity.BB.bottom;
-								that.velocity.y = 0;
-									
-						}
 					}
 
 					//SPRING MECHANICS
@@ -159,6 +150,18 @@ class Ninja {
 					&& (that.lastBB.right) >= entity.BB.left) {
 						that.flagTouch = true;
 					}
+					
+				if(that.velocity.y < 0){
+				if(entity instanceof Platform_Tile // bonking head
+					&& (that.lastBB.top) >= entity.BB.bottom) {
+						console.log("bonk");
+						that.y = entity.BB.bottom;
+						that.velocity.y = 0;
+							
+				}
+			}
+
+			
 			}
 
 		});
