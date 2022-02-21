@@ -346,7 +346,7 @@ class SceneManager {
 			this.game.addEntity(new Spike(this.game,15700+(gap*15)+150-400,690));
 			this.game.addEntity(new Spike(this.game,15700+(gap*16)+150-400,690));
 			this.game.addEntity(new Spike(this.game,15700+(gap*17)+150-400,690));
-			
+
 			this.game.addEntity(new Platform_Tile(this.game,17600,690));
 			this.game.addEntity(new Platform_Tile(this.game,17600+gap,690-gap));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*2),690-(gap*2)));
@@ -568,7 +568,7 @@ class SceneManager {
 			for(var i = 0; i < 200; i++){
 				this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
 			}
-
+      
 			//Adding Random Backgrounds
 			for(let i = 0; i < 100; i++){
 				this.addBackground(i);
