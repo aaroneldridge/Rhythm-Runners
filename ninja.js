@@ -79,7 +79,7 @@ class Ninja {
 		// jumping
 		if (this.game.space && this.jumping == false && this.x.velocity != 0) {
 			//this.state = 2;
-			this.velocity.y -= 13;
+			this.velocity.y -= 13; 
 			this.jumping = true;
 			ASSET_MANAGER.playAsset("./sounds/jump.wav");
 		}
