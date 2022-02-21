@@ -45,7 +45,9 @@ class Ninja {
 	
 	update() {
 		const TICK = this.game.clockTick;
-		
+		console.log(this.x);
+		if(this.y > 1000)
+			this.hits = 3;
 
 		// if (this.game.z) {
 		// 	this.state = 2;

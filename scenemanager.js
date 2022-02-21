@@ -195,6 +195,11 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,9500+(gap*2),500));
 			this.game.addEntity(new Platform_Tile(this.game,9500+(gap*3),500));
 
+			this.game.addEntity(new Spike(this.game,9400,695));
+			this.game.addEntity(new Spike(this.game,9400+gap,695));
+			this.game.addEntity(new Spike(this.game,9400+(gap*2),695));
+
+
 			this.game.addEntity(new Platform_Tile(this.game,9800+gap,300));
 			this.game.addEntity(new Platform_Tile(this.game,9800+(gap*2),300));
 			this.game.addEntity(new Platform_Tile(this.game,9800+(gap*3),300));
@@ -251,7 +256,6 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,11500+(gap*11),400));
 			this.game.addEntity(new Platform_Tile(this.game,11500+(gap*12),400));
 			this.game.addEntity(new Platform_Tile(this.game,11500+(gap*13),400));
-
 			//next long slide
 			this.game.addEntity(new Platform_Tile(this.game,12500+gap,450));
 			this.game.addEntity(new Platform_Tile(this.game,12500+(gap*2),450));
@@ -456,11 +460,24 @@ class SceneManager {
 
 			
 			//Adding grass flooring
-			for(var i = 0; i < 1000; i++){
+			for(var i = 0; i < 40; i++){
 				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
 			}
+
+			for(var i = 0; i < 50; i++){
+				this.game.addEntity(new Grass_Middle(this.game,2700+(i*64),720));
+			}
+
+			for(var i = 0; i < 66; i++){
+				this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
+			}
+
+			for(var i = 0; i < 66; i++){
+				this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
+			}
+
 			//Adding Random Backgrounds
-			for(let i = 0; i < 40; i++){
+			for(let i = 0; i < 100; i++){
 				this.addBackground(i);
 			}
 
