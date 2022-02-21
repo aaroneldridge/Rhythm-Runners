@@ -133,8 +133,7 @@ class Ninja {
 				if (entity instanceof Spike) {
 						console.log("spikes");
 						that.hits++;
-						ASSET_MANAGER.pauseBackgroundMusic();
-						that.velocity.x = 0;
+						entity.BB = NULL;
 				}
 					
 				if (entity instanceof Flag

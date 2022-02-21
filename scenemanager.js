@@ -500,15 +500,15 @@ class SceneManager {
 			ctx.drawImage(this.hp, 9, 399, 278, 51, 50, 80, 200, 20);	
 		}
 		
-		if (this.ninja.hits === 5) {
+		if (this.ninja.hits === 1) {
 			ctx.drawImage(this.hp, 9, 269, 278, 51, 50, 80, 200, 20);
 		}
 		
-		if (this.ninja.hits === 10) {
+		if (this.ninja.hits === 2) {
 			ctx.drawImage(this.hp, 9, 139, 278, 51, 50, 80, 200, 20);
 		}
 		
-		if (this.ninja.hits === 15) {
+		if (this.ninja.hits === 3) {
 			this.death = true;
 			this.ninja.velocity.x = 0;
 			this.ninja.state = 2;
