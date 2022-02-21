@@ -88,6 +88,13 @@ class Ninja {
 		}
 		
 		this.velocity.y += .3; // gravity
+		
+		if (this.hits === 3) {
+			this.state = 0;
+			this.velocity.x = 0;
+			//ASSET_MANAGER.pauseBackgroundMusic();
+		}
+		
 		this.y += this.velocity.y;
 		this.x += this.velocity.x;
 		
@@ -163,11 +170,8 @@ class Ninja {
 
 		if(this.state == 3){
 			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+25, 5, 5);
-
 		} else {
-
-		this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
-		
+			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		}
 
 		if (PARAMS.DEBUG) {
