@@ -7,10 +7,8 @@ class Ninja {
 		this.jumping = false;
 		this.hits = 0;
 		this.flagTouch = false;
-<<<<<<< HEAD
-=======
+
 		this.coinCounter = new CoinCount(this.game, 500, 100);
->>>>>>> merit
 		this.updateBB();
 
 		
