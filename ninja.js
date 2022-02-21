@@ -110,6 +110,15 @@ class Ninja {
 
 					}
 
+					if(that.velocity.y < 0){
+						if(entity instanceof Platform_Tile // bonking head
+							&& (that.lastBB.top) >= entity.BB.bottom) {
+								that.y = entity.BB.bottom;
+								that.velocity.y = 0;
+									
+						}
+					}
+
 					//SPRING MECHANICS
 					if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
 					{
@@ -136,7 +145,9 @@ class Ninja {
 						that.hits++;
 						entity.BB = new BoundingBox(null,null,null,null);
 				}
-					
+
+
+				//FLAG END GAME					
 				if (entity instanceof Flag
 					&& (that.lastBB.right) >= entity.BB.left) {
 						that.flagTouch = true;
