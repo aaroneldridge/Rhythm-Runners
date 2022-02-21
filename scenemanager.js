@@ -472,7 +472,7 @@ class SceneManager {
 				this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
 			}
 
-			for(var i = 0; i < 66; i++){
+			for(var i = 0; i < 90; i++){
 				this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
 			}
 
