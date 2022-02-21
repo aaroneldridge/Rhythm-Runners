@@ -26,38 +26,22 @@ class Ninja {
 	loadAnimations() {
 		for (var i = 0; i < 4; i++) {
 			this.animations.push([]);
-			for (var j = 0; j < 2; j++) {
-				this.animations[i].push([]);
-			}
 		}
 		
 		// idle animation
-		// facing right
-		this.animations[0][0] = new Animator(this.spritesheet, 265, 13, 22, 22, 1, 1, false);
-		
-		// facing left
-		this.animations[0][1] = new Animator(this.spritesheet, 222, 13, 24, 22, 1, 1, false);
+		this.animations[0] = new Animator(this.spritesheet, 265, 13, 22, 22, 1, 1, false);
 		
 		// walking animation
 		// facing right
-		this.animations[1][0] = new Animator(this.spritesheet, 265, 13, 27, 23, 2, 0.2, false);
-		
-		// facing left
-		this.animations[1][1] = new Animator(this.spritesheet, 190, 13, 27, 23, 2, 0.2, true);
+		this.animations[1] = new Animator(this.spritesheet, 265, 13, 27, 23, 2, 0.2, false);
 		
 		// sliding animation
 		// facing right
-		this.animations[2][0] = new Animator(this.spritesheet, 390, 45, 27, 17, 1, 1, false);
-		
-		// facing left
-		this.animations[2][1] = new Animator(this.spritesheet, 93, 45, 27, 17, 1, 1, false);
+		this.animations[2] = new Animator(this.spritesheet, 390, 45, 27, 17, 1, 1, false);
 		
 		// attacking animation
 		// facing right
-		this.animations[3][0] = new Animator(this.spritesheet, 390, 142, 27, 25, 1, 1, false);
-		
-		// facing left
-		this.animations[3][1] = new Animator(this.spritesheet, 90, 142, 27, 25, 1, 1, false);
+		this.animations[3] = new Animator(this.spritesheet, 390, 142, 27, 25, 1, 1, false);
 	};
 	
 	update() {
@@ -169,11 +153,11 @@ class Ninja {
 	
 	draw(ctx) {
 		if (this.state == 3) {
-			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+25, 5, 5);
+			this.animations[this.state].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+25, 5, 5);
 		} else if (this.state == 2) {
-			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+30, 5, 5);
+			this.animations[this.state].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y+30, 5, 5);
 		} else {
-			this.animations[this.state][this.facing].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
+			this.animations[this.state].drawFrame(this.game.clockTick, ctx, this.x - this.game.camera.x, this.y, 5, 5);
 		}
 
 		if (PARAMS.DEBUG) {
