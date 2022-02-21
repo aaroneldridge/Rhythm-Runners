@@ -718,7 +718,7 @@ class SceneManager {
 			ctx.fillText("Restart?", 400, 600);
 		}
 		
-		if (this.flag && !this.transition) {
+		if (this.flag) {
 			
 			
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
