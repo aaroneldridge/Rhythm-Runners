@@ -32,15 +32,12 @@ class Ninja {
 		this.animations[0] = new Animator(this.spritesheet, 265, 13, 22, 22, 1, 1, false);
 		
 		// walking animation
-		// facing right
 		this.animations[1] = new Animator(this.spritesheet, 265, 13, 27, 23, 2, 0.2, false);
 		
 		// sliding animation
-		// facing right
 		this.animations[2] = new Animator(this.spritesheet, 390, 45, 27, 17, 1, 1, false);
 		
 		// attacking animation
-		// facing right
 		this.animations[3] = new Animator(this.spritesheet, 390, 142, 27, 25, 1, 1, false);
 	};
 	
