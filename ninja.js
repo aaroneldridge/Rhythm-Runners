@@ -143,6 +143,7 @@ class Ninja {
 				if (entity instanceof Spike
 					&& (that.lastBB.right) >= entity.BB.left) {
 						that.hits++;
+						entity.removeFromWorld = true;
 						
 						that.updateBB();
 					}

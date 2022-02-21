@@ -82,7 +82,7 @@ class Spike{
 	};
 	
 	draw(ctx) {
-		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x - 400, this.y, 64, 64);
+		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x, this.y, 64, 64);
 	};
 };
 
@@ -99,6 +99,6 @@ class Flag{
 	};
 	
 	draw(ctx) {
-		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x - 400, this.y, 64, 64);
+		ctx.drawImage(this.spritesheet, this.x - this.game.camera.x, this.y, 64, 64);
 	};
 };
