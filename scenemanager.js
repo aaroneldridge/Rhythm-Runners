@@ -539,7 +539,7 @@ class SceneManager {
 		}
 		
 		if (this.death && !this.transition) {
-			//ctx.drawImage(this.black, 0, 0, 620, 349, 0, 0, 1024, 768);
+			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.drawImage(this.hp, 9, 9, 278, 51, 50, 80, 200, 20);
 			ctx.fillStyle = "Red";
 			ctx.fillText("You have died!", 350, 400);
