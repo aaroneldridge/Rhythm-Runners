@@ -357,58 +357,147 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*7),360-(gap*2)));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*8),360-(gap*2)));
 
-			
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*12),500));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*13),500-(gap)));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*14),500-(gap*2)));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*15),500-(gap*2)));
 
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*0),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*1),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*2),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*3),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*4),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*5),400-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*19),260));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*20),260-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*21),260-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*22),260-(gap*2)));
+
 			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*6),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*7),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*8),400-(gap*0)));
 
-			this.game.addEntity(new Platform_Tile(this.game,20400,690));
-			this.game.addEntity(new Platform_Tile(this.game,20400+gap,690-gap));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*2),690-(gap*2)));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*3),690-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*13),400-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*14),400-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*15),400-(gap*0)));
 
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*5),360));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*6),360-(gap)));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*7),360-(gap*2)));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*8),360-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400-gap,690));
+			this.game.addEntity(new Platform_Tile(this.game,20400,690-gap));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*1),690-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*2),690-(gap*2))); 
 
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*12),500));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*13),500-(gap)));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*14),500-(gap*2)));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*15),500-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*4),360)); 
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*5),360-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*6),360-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*7),360-(gap*2))); 
+
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*11),500)); 
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*12),500-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*13),500-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*14),500-(gap*2))); 
+
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*18),260)); 
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*19),260-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*20),260-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*21),260-(gap*2))); 
 			
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*0),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*1),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*2),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*3),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*4),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*5),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*6),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*7),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*8),400-(gap*0)));
 			
+			this.game.addEntity(new Platform_Tile(this.game,22150-(gap*2),200-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,22150-(gap*1),200-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*0),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*1),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*2),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*3),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*4),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*5),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*6),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*7),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*8),200-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*1),200+(gap*1)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*2),200+(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*3),200+(gap*3)));
 
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*9),450+(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*10),450+(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*11),450+(gap*0)));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200,690));
+			this.game.addEntity(new Platform_Tile(this.game,23200+gap,690-gap));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*2),690-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*3),690-(gap*2)));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*5),360));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*6),360-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*7),360-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*8),360-(gap*2)));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*12),500));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*13),500-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*14),500-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*15),500-(gap*2)));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*19),260));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*20),260-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*21),260-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*22),260-(gap*2)));		
 			
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*25),260));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*26),260));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*30),460));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*31),460));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*32),460));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*37),360));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*38),360));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*39),360));
+
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*44),460));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*45),460));
+			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*46),460));
+
+			// deep tone of music
+
+
+			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*1),360));
+			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*2),360+(gap)));
+			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*3),360+(gap*2)));
+			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*4),360+(gap*2)));
+			
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*9),360));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*10),360));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*11),360));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*12),360));
+			
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*17),360));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*18),360+(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*19),360+(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*20),360+(gap*3))); 
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*21),360+(gap*3))); 
+
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*25),360));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*26),360+(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*27),360+(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*28),360+(gap*2))); 
+
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*4),360+(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*5),360+(gap*2))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*6),360+(gap*2))); 
+
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*10),325));
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*11),325)); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*12),325)); 
+
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*14),500));
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*15),500)); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*16),500)); 
+
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*20),300));
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*21),300)); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*22),300)); 
+
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*26),100+(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*27),100+(gap*1))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*28),100+(gap*2))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*29),100+(gap*3))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*30),100+(gap*4))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*31),100+(gap*5))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*32),100+(gap*6))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*33),100+(gap*7))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*34),100+(gap*8))); 
+			this.game.addEntity(new Platform_Tile(this.game,27152+(gap*35),100+(gap*9))); 
+
+
+
 
 			this.game.addEntity(new Coin(this.game, 500, 670));
 			this.game.addEntity(new Coin(this.game, 950, 430));
@@ -443,7 +532,7 @@ class SceneManager {
 			this.game.addEntity(new Coin(this.game, 19000, 300));
 			this.game.addEntity(new Coin(this.game, 19050, 400));
 
-			this.game.addEntity(new Flag(this.game, 23000, 670));
+			this.game.addEntity(new Flag(this.game, 30550, 670));
 			
 
 
@@ -476,6 +565,10 @@ class SceneManager {
 				this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
 			}
 
+			for(var i = 0; i < 200; i++){
+				this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
+			}
+      
 			//Adding Random Backgrounds
 			for(let i = 0; i < 100; i++){
 				this.addBackground(i);

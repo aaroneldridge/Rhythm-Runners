@@ -22,7 +22,6 @@ ASSET_MANAGER.queueDownload("./sprites/Flag.png");
 
 // sounds
 ASSET_MANAGER.queueDownload("./sounds/bgm.mp3");
-ASSET_MANAGER.queueDownload("./sounds/bgm_w.mp3");
 ASSET_MANAGER.queueDownload("./sounds/bgm_1.mp3");
 ASSET_MANAGER.queueDownload("./sounds/attack.wav");
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
