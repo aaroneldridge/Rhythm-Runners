@@ -324,25 +324,25 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*16),450));
 			this.game.addEntity(new Platform_Tile(this.game,15770+(gap*17),450))
 
-			this.game.addEntity(new Spring(this.game,15300+150,690));
-			this.game.addEntity(new Spike(this.game,15700+gap+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*2)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*3)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*4)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*5)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*6)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*7)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*8)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*9)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*10)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*11)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*12)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*13)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*14)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*15)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*16)+150,690));
-			this.game.addEntity(new Spike(this.game,15700+(gap*17)+150,690));
-
+						this.game.addEntity(new Spring(this.game,15300+150,690));
+			this.game.addEntity(new Spike(this.game,15700+gap+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*2)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*3)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*4)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*5)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*6)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*7)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*8)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*9)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*10)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*11)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*12)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*13)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*14)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*15)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*16)+150-400,690));
+			this.game.addEntity(new Spike(this.game,15700+(gap*17)+150-400,690));
+			
 			this.game.addEntity(new Platform_Tile(this.game,17600,690));
 			this.game.addEntity(new Platform_Tile(this.game,17600+gap,690-gap));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*2),690-(gap*2)));
@@ -353,21 +353,23 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*7),360-(gap*2)));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*8),360-(gap*2)));
 
-			
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*12),500));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*13),500-(gap)));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*14),500-(gap*2)));
 			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*15),500-(gap*2)));
 
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*0),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*1),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*2),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*3),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*4),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*5),400-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*19),260));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*20),260-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*21),260-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,17600+(gap*22),260-(gap*2)));
+
 			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*6),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*7),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*8),400-(gap*0)));
+
+			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*12),400-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*13),400-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,18700+(gap*14),400-(gap*0)));
 
 			this.game.addEntity(new Platform_Tile(this.game,20400,690));
 			this.game.addEntity(new Platform_Tile(this.game,20400+gap,690-gap));
@@ -383,13 +385,12 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*13),500-(gap)));
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*14),500-(gap*2)));
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*15),500-(gap*2)));
+
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*19),260));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*20),260-(gap)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*21),260-(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*22),260-(gap*2)));
 			
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*0),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*1),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*2),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*3),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*4),400-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*5),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*6),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*7),400-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,21500+(gap*8),400-(gap*0)));
@@ -399,10 +400,10 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*2),200-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*3),200-(gap*0)));
 			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*4),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*5),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*6),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*7),200-(gap*0)));
-			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*8),200-(gap*0)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*5),200+(gap*1)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*6),200+(gap*2)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*7),200+(gap*3)));
+			this.game.addEntity(new Platform_Tile(this.game,22150+(gap*8),200+(gap*4)));
 
 			
 
