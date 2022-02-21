@@ -383,8 +383,7 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*4),360)); 
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*5),360-(gap)));
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*6),360-(gap*2)));
-			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*7),360-(gap*2))); 
-
+			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*7),360-(gap*2)));
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*11),500)); 
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*12),500-(gap)));
 			this.game.addEntity(new Platform_Tile(this.game,20400+(gap*13),500-(gap*2)));
@@ -532,17 +531,35 @@ class SceneManager {
 			this.game.addEntity(new Coin(this.game, 19000, 300));
 			this.game.addEntity(new Coin(this.game, 19050, 400));
 
+			this.game.addEntity(new Coin(this.game,21150,300));
+			this.game.addEntity(new Coin(this.game,21800,300));
+			this.game.addEntity(new Coin(this.game,22750,350));
+			this.game.addEntity(new Coin(this.game,22750,350));
+			this.game.addEntity(new Coin(this.game,23600,150));
+			this.game.addEntity(new Coin(this.game,24000,300));
+			this.game.addEntity(new Coin(this.game,24600,200));
+			this.game.addEntity(new Coin(this.game,26200,275));
+			this.game.addEntity(new Coin(this.game,26750,400));
+
+
+
+
+
+
+
+			this.game.addEntity(new Spike(this.game,22750,690));
+			this.game.addEntity(new Spike(this.game,22750+gap,690));
+			this.game.addEntity(new Spike(this.game,22500+(gap*2),690));
+
+
+
+			this.game.addEntity(new Coin(this.game, 30200, 670));
+			this.game.addEntity(new Coin(this.game, 30200, 570));
+			this.game.addEntity(new Coin(this.game, 30200, 470));
+			this.game.addEntity(new Coin(this.game, 30200, 370));
+
 			this.game.addEntity(new Flag(this.game, 30550, 670));
 			
-
-
-			/*this.game.addEntity(new Barrel(this.game,1700,700));
-			this.game.addEntity(new LanternPost(this.game,600,500));
-			this.game.addEntity(new Barrel(this.game,2404,700));
-			this.game.addEntity(new Barrel(this.game,100,700));
-			this.game.addEntity(new Barrel(this.game,9900,700));
-			this.game.addEntity(new Barrel(this.game,3990,700));
-			this.game.addEntity(new LanternPost(this.game,4399,500));*/
 			
 			
 
@@ -565,10 +582,19 @@ class SceneManager {
 				this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
 			}
 
-			for(var i = 0; i < 200; i++){
+			for(var i = 0; i < 40; i++){
 				this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
 			}
-      
+
+			for(var i = 0; i < 20; i++){
+				this.game.addEntity(new Grass_Middle(this.game,26000+(i*64),720));
+			}
+
+			for(var i = 0; i < 27; i++){
+				this.game.addEntity(new Grass_Middle(this.game,29000+(i*64),720));
+			
+
+			}
 			//Adding Random Backgrounds
 			for(let i = 0; i < 100; i++){
 				this.addBackground(i);
