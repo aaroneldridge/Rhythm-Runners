@@ -20,6 +20,7 @@ class Ninja {
 		
 		this.state = 1;
 		this.facing = 0;
+		this.canJump = true;
 	};
 	
 	loadAnimations() {
@@ -77,7 +78,7 @@ class Ninja {
 		// }
 		
 		// jumping
-		if (this.game.space && this.jumping == false && this.x.velocity != 0) {
+		if (this.game.space && this.jumping == false && this.canJump) {
 			//this.state = 2;
 			this.velocity.y -= 13; 
 			this.jumping = true;
@@ -133,7 +134,7 @@ class Ninja {
 				if (entity instanceof Spike) {
 						console.log("spikes");
 						that.hits++;
-						entity.BB = NULL;
+						entity.BB = new BoundingBox(null,null,null,null);
 				}
 					
 				if (entity instanceof Flag

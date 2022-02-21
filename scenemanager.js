@@ -510,8 +510,10 @@ class SceneManager {
 		
 		if (this.ninja.hits === 3) {
 			this.death = true;
+			ASSET_MANAGER.pauseBackgroundMusic();
 			this.ninja.velocity.x = 0;
 			this.ninja.state = 2;
+			this.ninja.canJump=false;
 		}
 		
 		if (this.ninja.flagTouch === true) {
