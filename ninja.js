@@ -152,6 +152,7 @@ class Ninja {
 						that.flagTouch = true;
 						
 						that.updateBB();
+						that.game.camera.loadEndLevel();
 					}
 			}
 

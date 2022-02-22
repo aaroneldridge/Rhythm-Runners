@@ -21,6 +21,14 @@ class SceneManager {
 		});
 	};
 	
+	loadEndLevel() {
+		//clearents
+		//this.endlevel = new EndLevel(vxvvxcvxvc)
+		//this.game.addEntity(endlevel)
+		ASSET_MANAGER.pauseBackgroundMusic();
+		ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
+	}
+	
 	updateAudio() {
 		var mute = document.getElementById("mute").checked;
 		var volume = document.getElementById("volume").value;
@@ -48,7 +56,7 @@ class SceneManager {
 			//this.ninja = new Ninja(this.game, 0, 500);
 			
 			// ninja spawns near front of flag
-			this.ninja = new Ninja(this.game, 21000, 500);
+			this.ninja = new Ninja(this.game, 22000, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -439,6 +447,8 @@ class SceneManager {
 
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
+			
+			
 		}
 	};
 	
