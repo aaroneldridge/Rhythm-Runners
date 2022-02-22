@@ -14,6 +14,7 @@ ASSET_MANAGER.queueDownload("./sprites/Pot.png");
 ASSET_MANAGER.queueDownload("./sprites/SPIKES.png");
 ASSET_MANAGER.queueDownload("./sprites/Spring.png");
 ASSET_MANAGER.queueDownload("./sprites/coin.png");
+ASSET_MANAGER.queueDownload("./sprites/Coin1.png");
 ASSET_MANAGER.queueDownload("./sprites/hp.png");
 ASSET_MANAGER.queueDownload("./sprites/Flag.png");
 
@@ -21,7 +22,6 @@ ASSET_MANAGER.queueDownload("./sprites/Flag.png");
 
 // sounds
 ASSET_MANAGER.queueDownload("./sounds/bgm.mp3");
-ASSET_MANAGER.queueDownload("./sounds/bgm_w.mp3");
 ASSET_MANAGER.queueDownload("./sounds/bgm_1.mp3");
 ASSET_MANAGER.queueDownload("./sounds/attack.wav");
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
