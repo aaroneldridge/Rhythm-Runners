@@ -725,26 +725,6 @@ class SceneManager {
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Red";
 			ctx.fillText("Restart?", 400, 600);
 		}
-		
-		/*if (this.flag) {
-			
-			
-			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
-			
-			ASSET_MANAGER.pauseBackgroundMusic();
-			
-			setTimeout(function(){
-				ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
-			}, 100);
-			
-			// To show completion
-			ctx.fillStyle = "Black";
-			ctx.fillText("Level One completed!", 300, 300);
-			
-			// To go back to the beginning
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
-			ctx.fillText("Restart?", 400, 600);
-		}*/
 	};
 
 	addBackground(i) {
