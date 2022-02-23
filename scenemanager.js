@@ -30,6 +30,14 @@ class SceneManager {
 		ASSET_MANAGER.adjustVolume(volume);
 	};
 	
+	loadEndLevel() {
+		this.clearEntities();
+		this.endlevel = new EndLevel(this.game, 0, 0);
+		this.game.addEntity(this.endlevel);
+		ASSET_MANAGER.pauseBackgroundMusic();
+		ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
+	}
+	
 	loadLevel(level, transition, title) {
 		this.title = title;
 		this.transition = transition;
@@ -46,10 +54,10 @@ class SceneManager {
 
 			//17000
 			// ninja spawns at beginning of level
-			this.ninja = new Ninja(this.game, 0, 500);
+			//this.ninja = new Ninja(this.game, 0, 500);
 			
 			// ninja spawns near front of flag
-			//this.ninja = new Ninja(this.game, 22000, 500);
+			this.ninja = new Ninja(this.game, 30000, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -718,7 +726,7 @@ class SceneManager {
 			ctx.fillText("Restart?", 400, 600);
 		}
 		
-		if (this.flag) {
+		/*if (this.flag) {
 			
 			
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
@@ -736,7 +744,7 @@ class SceneManager {
 			// To go back to the beginning
 			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 625 && this.game.mouse.y > 560 && this.game.mouse.y < 610 ? "White" : "Black";
 			ctx.fillText("Restart?", 400, 600);
-		}
+		}*/
 	};
 
 	addBackground(i) {
