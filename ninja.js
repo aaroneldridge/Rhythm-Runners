@@ -135,6 +135,7 @@ class Ninja {
 				if (entity instanceof Flag
 					&& (that.lastBB.right) >= entity.BB.left) {
 						that.flagTouch = true;
+						that.game.camera.loadEndLevel();
 					}
 					
 				if(that.velocity.y < 0){
