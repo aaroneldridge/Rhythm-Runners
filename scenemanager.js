@@ -445,14 +445,7 @@ class SceneManager {
 			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*45),460));
 			this.game.addEntity(new Platform_Tile(this.game,23200+(gap*46),460));
 
-			// deep tone of music
-
-
-			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*1),360));
-			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*2),360+(gap)));
-			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*3),360+(gap*2)));
-			//this.game.addEntity(new Platform_Tile(this.game,25584+(gap*4),360+(gap*2)));
-			
+			// deep tone of music			
 			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*9),360));
 			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*10),360));
 			this.game.addEntity(new Platform_Tile(this.game,25584+(gap*11),360));
@@ -498,7 +491,7 @@ class SceneManager {
 
 
 
-
+			// adding in coins
 			this.game.addEntity(new Coin(this.game, 500, 670));
 			this.game.addEntity(new Coin(this.game, 950, 430));
 			this.game.addEntity(new Coin(this.game, 1200, 670));
@@ -533,21 +526,7 @@ class SceneManager {
 			this.game.addEntity(new Coin(this.game, 19050, 400));
 
 			this.game.addEntity(new Flag(this.game, 30550, 670));
-			
 
-
-			/*this.game.addEntity(new Barrel(this.game,1700,700));
-			this.game.addEntity(new LanternPost(this.game,600,500));
-			this.game.addEntity(new Barrel(this.game,2404,700));
-			this.game.addEntity(new Barrel(this.game,100,700));
-			this.game.addEntity(new Barrel(this.game,9900,700));
-			this.game.addEntity(new Barrel(this.game,3990,700));
-			this.game.addEntity(new LanternPost(this.game,4399,500));*/
-			
-			
-
-
-			
 			//Adding grass flooring
 			for(var i = 0; i < 40; i++){
 				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
@@ -614,7 +593,7 @@ class SceneManager {
 			}
 		}
 		
-		if (this.flag && this.end) {
+		if (this.flag) {
 			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
 				this.transition = true;
 				this.death = false;
@@ -692,9 +671,7 @@ class SceneManager {
 			ctx.fillText("Restart?", 400, 600);
 		}
 		
-		if (this.flag) {
-			
-			
+		if (this.flag) {			
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			
 			ASSET_MANAGER.pauseBackgroundMusic();
