@@ -49,8 +49,8 @@ class SceneManager {
 			// ninja spawns at beginning of level
 			//that.ninja = new Ninja(this.game, 0, 500);
 			
-			// ninja spawns near front of flag
-			that.ninja = new Ninja(that.game, 29000, 500);
+			// ninja spawns near front of flag (29000)
+			that.ninja = new Ninja(that.game, 0, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -74,6 +74,13 @@ class SceneManager {
 					this.game.addEntity(new Spike(this.game, spike.x, spike.y));
 				}
 			}
+
+			if (level.spring) {
+				for (var i = 0; i < level.spring.length; i++) {
+					let spring = level.spring[i];
+					this.game.addEntity(new Spring(this.game, spring.x, spring.y));
+				}
+			}
 			
 			if (level.coins) {
 				for (var i = 0; i < level.coins.length; i++) {
@@ -89,11 +96,7 @@ class SceneManager {
 				}
 			}
 			
-			
-			
-
-
-			
+					
 			//Adding grass flooring
 			for(var i = 0; i < 40; i++){
 				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
@@ -143,19 +146,43 @@ class SceneManager {
 		//PARAMS.DEBUG = document.getElementById("debug").checked;
 		
 		if (this.title && this.game.click) {
-			if (this.game.click.x > 415 && this.game.click.x < 565 && this.game.click.y > 660 && this.game.click.y < 710) {
+			if (this.game.click.x > 415 && this.game.click.x < 565 && this.game.click.y > 460 && this.game.click.y < 510) {
 				this.title = false;
 				this.transition = true;
 			}
 		}
 		
 		if (this.transition && this.game.click) {
-			if (this.game.click.x > 690 && this.game.click.x < 990 && this.game.click.y > 660 && this.game.click.y < 710) {
+			if (this.game.click.x > 270 && this.game.click.x < 420 && this.game.click.y > 240 && this.game.click.y < 320) {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
 				
 				this.loadLevel(levelOne, false, false);
+			}
+
+			if (this.game.click.x > 570 && this.game.click.x < 720 && this.game.click.y > 240 && this.game.click.y < 320) {
+				this.transition = false;
+				this.title = false;
+				this.death = false;
+				
+				this.loadLevel(levelTwo, false, false);
+			}
+
+			if (this.game.click.x > 270 && this.game.click.x < 420 && this.game.click.y > 390 && this.game.click.y < 470) {
+				this.transition = false;
+				this.title = false;
+				this.death = false;
+				
+				this.loadLevel(levelThree, false, false);
+			}
+
+			if (this.game.click.x > 570 && this.game.click.x < 720 && this.game.click.y > 390 && this.game.click.y < 470) {
+				this.transition = false;
+				this.title = false;
+				this.death = false;
+				
+				this.loadLevel(levelFour, false, false);
 			}
 		}
 		
@@ -224,29 +251,41 @@ class SceneManager {
 		if (this.ninja.flagTouch === true) {
 			this.end = true;
 		}
-		
-		ctx.font = 'italic small-caps bold 48px cursive';
+
+
+		ctx.font = 'italic small-caps 80px fantasy';
 		
 		if (this.title && !this.transition) {
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Black";
-			ctx.fillText("Rhythm Runners", 300, 300);
+			ctx.fillText("Rhythm Runners", 275, 300);
 			
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
-			ctx.fillText("PLAY", 425, 700);
+			ctx.font = 'italic small-caps 60px fantasy';
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 460 && this.game.mouse.y < 510 ? "White" : "Black";
+			ctx.fillText("PLAY", 425, 500);
 		}
 		
 		if (this.transition && !this.title) {
+			ctx.font = 'italic small-caps 40px fantasy';
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Black";
-			ctx.fillText("Try to reach the end of", 150, 250);
-			ctx.fillText("the stage without dying!", 150, 300);
-			ctx.fillText("Collect as many coins", 150, 400);
-			ctx.fillText("as you can. :)", 150, 450);
+			ctx.fillText("try to reach the end of the stage without dying!", 210, 100);
+			ctx.fillText("collect as many coins as you can!   :)", 260, 150);
+			ctx.font = 'italic small-caps 40px fantasy';
+			ctx.fillText("SELECT A LEVEL!", 375, 575);
 			
-			//ctx.fillRect(690, 660, 300, 50);
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 690 && this.game.mouse.x < 990 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
-			ctx.fillText("CONTINUE", 700, 700);
+			// level select
+			ctx.font = 'italic small-caps bold 48px fantasy';
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 270 && this.game.mouse.x < 420 && this.game.mouse.y > 240 && this.game.mouse.y < 320 ? "White" : "Black";
+			ctx.fillText("Level 1-1", 275, 300);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 570 && this.game.mouse.x < 720 && this.game.mouse.y > 240 && this.game.mouse.y < 320 ? "White" : "Black";
+			ctx.fillText("Level 1-2", 575, 300);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 270 && this.game.mouse.x < 420 && this.game.mouse.y > 390 && this.game.mouse.y < 470 ? "White" : "Black";
+			ctx.fillText("Level 2-1", 275, 450);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 570 && this.game.mouse.x < 720 && this.game.mouse.y > 390 && this.game.mouse.y < 470 ? "White" : "Black";
+			ctx.fillText("Level 2-2", 575, 450);
+
+
 		}
 		
 		if (this.death && !this.transition) {
