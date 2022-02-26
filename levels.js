@@ -1,5 +1,5 @@
 var levelOne = {
-	music: "./sounds/bgm_1.mp3",
+	music: "./sounds/level1.mp3",
 	platform_tiles: [{x: 756, y: 500},
 					 {x: 812, y: 500},
 					 {x: 868, y: 500},
@@ -520,7 +520,7 @@ var levelTwo = {
 };
 
 var levelThree = {
-	music: "./sounds/bgm_1.mp3",
+	music: "./sounds/level3.mp3",
 	
 	coins: [{x: 500, y: 670},
 			{x: 950, y: 430},
