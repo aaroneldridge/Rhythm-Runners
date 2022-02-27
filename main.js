@@ -49,7 +49,7 @@ ASSET_MANAGER.queueDownload("./background/trees w.png");
 ASSET_MANAGER.queueDownload("./platforms/Platform Tile.png");
 
 ASSET_MANAGER.downloadAll(() => {
-	ASSET_MANAGER.autoRepeat("./sounds/bgm_1.mp3");
+	ASSET_MANAGER.autoRepeat("./sounds/level1.mp3");
 	
 	
 	const canvas = document.getElementById("gameWorld");
