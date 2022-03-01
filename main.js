@@ -13,10 +13,11 @@ ASSET_MANAGER.queueDownload("./sprites/Plant1.png");
 ASSET_MANAGER.queueDownload("./sprites/Pot.png");
 ASSET_MANAGER.queueDownload("./sprites/SPIKES.png");
 ASSET_MANAGER.queueDownload("./sprites/Spring.png");
-ASSET_MANAGER.queueDownload("./sprites/coin.png");
 ASSET_MANAGER.queueDownload("./sprites/Coin1.png");
 ASSET_MANAGER.queueDownload("./sprites/hp.png");
 ASSET_MANAGER.queueDownload("./sprites/Flag.png");
+
+ASSET_MANAGER.queueDownload("./platforms/space middle.png");
 
 
 
@@ -47,6 +48,7 @@ ASSET_MANAGER.queueDownload("./background/trees w.png");
 
 // objects
 ASSET_MANAGER.queueDownload("./platforms/Platform Tile.png");
+ASSET_MANAGER.queueDownload("./platforms/space tile.png");
 
 ASSET_MANAGER.downloadAll(() => {
 	ASSET_MANAGER.autoRepeat("./sounds/level1.mp3");
