@@ -96,6 +96,20 @@ class SceneManager {
 				}
 			}
 			
+			if (level.space_tiles) {
+				for (var i = 0; i < level.space_tiles.length; i++) {
+					let space = level.space_tiles[i];
+					this.game.addEntity(new Space_Tile(this.game, space.x, space.y));
+				}
+			}
+			
+			if (level.space_middle) {
+				for (var i = 0; i < level.space_middle.length; i++) {
+					let space = level.space_middle[i];
+					this.game.addEntity(new Space_Middle(this.game, space.x, space.y));
+				}
+			}
+			
 					
 			//Adding grass flooring
 			for(var i = 0; i < 40; i++){

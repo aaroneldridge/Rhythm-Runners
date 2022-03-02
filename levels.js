@@ -522,6 +522,8 @@ var levelTwo = {
 var levelThree = {
 	music: "./sounds/level3.mp3",
 	
+	space_tiles: [{x: 300, y: 670}],
+	
 	coins: [{x: 500, y: 670},
 			{x: 950, y: 430},
 			{x: 1200, y:670},
