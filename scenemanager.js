@@ -13,7 +13,7 @@ class SceneManager {
 		this.ninja = new Ninja(this.game, 0, 500);
 		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
 		
-		this.levelCount = 1;
+		this.levelCount;
 	};
 	
 	clearEntities() {
@@ -47,9 +47,6 @@ class SceneManager {
 		var that = this;
 		if (!this.transition && !this.title) {		
 			// ninja spawns at beginning of level
-			//that.ninja = new Ninja(this.game, 0, 500);
-			
-			// ninja spawns near front of flag (29000)
 			that.ninja = new Ninja(that.game, 0, 500);
 			
 			var ninja = false;
@@ -151,24 +148,12 @@ class SceneManager {
 					this.game.addEntity(new Space_Middle(this.game,2600+(i*64),720));
 				}
 
-				for(var i = 0; i < 66; i++){
+				for(var i = 0; i < 80; i++){
 					this.game.addEntity(new Space_Middle(this.game,7400+(i*64),720));
 				}
 
-				for(var i = 0; i < 90; i++){
+				for(var i = 0; i < 124; i++){
 					this.game.addEntity(new Space_Middle(this.game,15000+(i*64),720));
-				}
-
-				for(var i = 0; i < 40; i++){
-					this.game.addEntity(new Space_Middle(this.game,22150+(i*64),720));
-				}
-
-				for(var i = 0; i < 20; i++){
-					this.game.addEntity(new Space_Middle(this.game,26000+(i*64),720));
-				}
-
-				for(var i = 0; i < 27; i++){
-					this.game.addEntity(new Space_Middle(this.game,29000+(i*64),720));
 				}
 			}
 			
@@ -202,6 +187,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 1;
 				
 				this.loadLevel(levelOne, false, false);
 			}
@@ -210,6 +196,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 2;
 				
 				this.loadLevel(levelTwo, false, false);
 			}
@@ -218,6 +205,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 3;
 				
 				this.loadLevel(levelThree, false, false);
 			}
@@ -226,6 +214,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 4;
 				
 				this.loadLevel(levelFour, false, false);
 			}
@@ -235,12 +224,6 @@ class SceneManager {
 			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
 				this.transition = true;
 				this.death = false;
-				
-				ASSET_MANAGER.pauseBackgroundMusic();
-				
-				// if level 1 -- replay level 1
-				// if level 2 -- etc. etc.
-				this.loadLevel(levelOne, true, false);
 			}
 		}
 		
