@@ -98,7 +98,7 @@ class Ninja {
 							that.y = entity.BB.top - 85;
 							that.velocity.y = 0;
 							that.jumping = false;
-							if(entity instanceof Grass_Middle)
+							if(entity instanceof Grass_Middle || entity instanceof Space_Middle)
 								that.y = entity.BB.top - 64;
 
 					}
