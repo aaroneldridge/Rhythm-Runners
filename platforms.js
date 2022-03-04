@@ -16,12 +16,46 @@ class Platform_Tile {
 	};
 };
 
+class Space_Tile {
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y});
+		
+		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/space tile.png");
+		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
+	};
+	
+	update() {
+		
+	};
+	
+	draw(ctx) {
+		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x,this.y,64,64);
+	};
+};
+
 
 class Grass_Middle {
 	constructor(game, x, y) {
 		Object.assign(this, { game, x, y});
 		
 		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/Grass Middle.png");
+		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
+	};
+	
+	update() {
+		
+	};
+	
+	draw(ctx) {
+		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x,this.y,64,64);
+	};
+};
+
+class Space_Middle {
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y});
+		
+		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/space middle.png");
 		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
 	};
 	

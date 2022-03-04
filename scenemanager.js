@@ -13,7 +13,7 @@ class SceneManager {
 		this.ninja = new Ninja(this.game, 0, 500);
 		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
 		
-		this.levelCount = 1;
+		this.levelCount;
 	};
 	
 	clearEntities() {
@@ -35,8 +35,7 @@ class SceneManager {
 		this.endlevel = new EndLevel(this.game, 0, 0);
 		this.game.addEntity(this.endlevel);
 		ASSET_MANAGER.pauseBackgroundMusic();
-		//ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
-		ASSET_MANAGER.playAsset("./sounds/8bitVictory.mp3");
+		ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
 	};
 	
 	loadLevel(level, transition, title) {
@@ -48,9 +47,6 @@ class SceneManager {
 		var that = this;
 		if (!this.transition && !this.title) {		
 			// ninja spawns at beginning of level
-			//that.ninja = new Ninja(this.game, 0, 500);
-			
-			// ninja spawns near front of flag (29000)
 			that.ninja = new Ninja(that.game, 0, 500);
 			
 			var ninja = false;
@@ -96,46 +92,71 @@ class SceneManager {
 					this.game.addEntity(new Flag(this.game, flag.x, flag.y));
 				}
 			}
-
-			if (level.Grass_Middle) {
-				for (var i = 0; i < level.Grass_Middle.length; i++) {
-					let grass = level.Grass_Middle[i];
-					this.game.addEntity(new Grass_Middle(this.game, grass.x, grass.y));
+			
+			if (level.space_tiles) {
+				for (var i = 0; i < level.space_tiles.length; i++) {
+					let space = level.space_tiles[i];
+					this.game.addEntity(new Space_Tile(this.game, space.x, space.y));
 				}
 			}
-
-
 			
-			//Adding grass flooring for first level
-			//for(var i = 0; i < 40; i++){
-		//		this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
-			//}
-
-			//for(var i = 0; i < 50; i++){
-			//	this.game.addEntity(new Grass_Middle(this.game,2700+(i*64),720));
-			//}
-
-			//for(var i = 0; i < 66; i++){
-			//	this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
-			//}
-
-			//for(var i = 0; i < 90; i++){
-			//	this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
-			//}
-
-			//for(var i = 0; i < 40; i++){
-			//	this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
-			//}
-
-			//for(var i = 0; i < 20; i++){
-			//	this.game.addEntity(new Grass_Middle(this.game,26000+(i*64),720));
-			//}
-
-		//	for(var i = 0; i < 27; i++){
-			//	this.game.addEntity(new Grass_Middle(this.game,29000+(i*64),720));
+			if (level.space_middle) {
+				for (var i = 0; i < level.space_middle.length; i++) {
+					let space = level.space_middle[i];
+					this.game.addEntity(new Space_Middle(this.game, space.x, space.y));
+				}
+			}
 			
+			if (level === levelOne || level === levelTwo) {
+				//Adding grass flooring
+				for(var i = 0; i < 40; i++){
+					this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
+				}
 
-			//}
+				for(var i = 0; i < 50; i++){
+					this.game.addEntity(new Grass_Middle(this.game,2700+(i*64),720));
+				}
+
+				for(var i = 0; i < 66; i++){
+					this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
+				}
+
+				for(var i = 0; i < 90; i++){
+					this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
+				}
+
+				for(var i = 0; i < 40; i++){
+					this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
+				}
+
+				for(var i = 0; i < 20; i++){
+					this.game.addEntity(new Grass_Middle(this.game,26000+(i*64),720));
+				}
+
+				for(var i = 0; i < 27; i++){
+					this.game.addEntity(new Grass_Middle(this.game,29000+(i*64),720));
+				}
+			}
+			
+			if (level === levelThree || level === levelFour) {
+				//Adding grass flooring
+				for(var i = 0; i < 30; i++){
+					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
+				}
+
+				for(var i = 0; i < 50; i++){
+					this.game.addEntity(new Space_Middle(this.game,2600+(i*64),720));
+				}
+
+				for(var i = 0; i < 80; i++){
+					this.game.addEntity(new Space_Middle(this.game,7400+(i*64),720));
+				}
+
+				for(var i = 0; i < 124; i++){
+					this.game.addEntity(new Space_Middle(this.game,15000+(i*64),720));
+				}
+			}
+			
 			//Adding Random Backgrounds
 			for(let i = 0; i < 100; i++){
 				this.addBackground(i);
@@ -166,6 +187,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 1;
 				
 				this.loadLevel(levelOne, false, false);
 			}
@@ -174,6 +196,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 2;
 				
 				this.loadLevel(levelTwo, false, false);
 			}
@@ -182,6 +205,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 3;
 				
 				this.loadLevel(levelThree, false, false);
 			}
@@ -190,6 +214,7 @@ class SceneManager {
 				this.transition = false;
 				this.title = false;
 				this.death = false;
+				this.levelCount = 4;
 				
 				this.loadLevel(levelFour, false, false);
 			}
@@ -199,12 +224,6 @@ class SceneManager {
 			if (this.game.click.x > 400 && this.game.click.x < 625 && this.game.click.y > 560 && this.game.click.y < 610) {
 				this.transition = true;
 				this.death = false;
-				
-				ASSET_MANAGER.pauseBackgroundMusic();
-				
-				// if level 1 -- replay level 1
-				// if level 2 -- etc. etc.
-				this.loadLevel(levelOne, true, false);
 			}
 		}
 		
