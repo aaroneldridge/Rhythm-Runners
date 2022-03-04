@@ -35,7 +35,8 @@ class SceneManager {
 		this.endlevel = new EndLevel(this.game, 0, 0);
 		this.game.addEntity(this.endlevel);
 		ASSET_MANAGER.pauseBackgroundMusic();
-		ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
+		//ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
+		ASSET_MANAGER.playAsset("./sounds/8bitVictory.mp3");
 	};
 	
 	loadLevel(level, transition, title) {
@@ -95,38 +96,46 @@ class SceneManager {
 					this.game.addEntity(new Flag(this.game, flag.x, flag.y));
 				}
 			}
+
+			if (level.Grass_Middle) {
+				for (var i = 0; i < level.Grass_Middle.length; i++) {
+					let grass = level.Grass_Middle[i];
+					this.game.addEntity(new Grass_Middle(this.game, grass.x, grass.y));
+				}
+			}
+
+
 			
-					
-			//Adding grass flooring
-			for(var i = 0; i < 40; i++){
-				this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
-			}
+			//Adding grass flooring for first level
+			//for(var i = 0; i < 40; i++){
+		//		this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
+			//}
 
-			for(var i = 0; i < 50; i++){
-				this.game.addEntity(new Grass_Middle(this.game,2700+(i*64),720));
-			}
+			//for(var i = 0; i < 50; i++){
+			//	this.game.addEntity(new Grass_Middle(this.game,2700+(i*64),720));
+			//}
 
-			for(var i = 0; i < 66; i++){
-				this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
-			}
+			//for(var i = 0; i < 66; i++){
+			//	this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
+			//}
 
-			for(var i = 0; i < 90; i++){
-				this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
-			}
+			//for(var i = 0; i < 90; i++){
+			//	this.game.addEntity(new Grass_Middle(this.game,15000+(i*64),720));
+			//}
 
-			for(var i = 0; i < 40; i++){
-				this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
-			}
+			//for(var i = 0; i < 40; i++){
+			//	this.game.addEntity(new Grass_Middle(this.game,22150+(i*64),720));
+			//}
 
-			for(var i = 0; i < 20; i++){
-				this.game.addEntity(new Grass_Middle(this.game,26000+(i*64),720));
-			}
+			//for(var i = 0; i < 20; i++){
+			//	this.game.addEntity(new Grass_Middle(this.game,26000+(i*64),720));
+			//}
 
-			for(var i = 0; i < 27; i++){
-				this.game.addEntity(new Grass_Middle(this.game,29000+(i*64),720));
+		//	for(var i = 0; i < 27; i++){
+			//	this.game.addEntity(new Grass_Middle(this.game,29000+(i*64),720));
 			
 
-			}
+			//}
 			//Adding Random Backgrounds
 			for(let i = 0; i < 100; i++){
 				this.addBackground(i);

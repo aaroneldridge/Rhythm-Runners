@@ -28,9 +28,13 @@ ASSET_MANAGER.queueDownload("./sounds/attack.wav");
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 ASSET_MANAGER.queueDownload("./sounds/coin.wav");
 ASSET_MANAGER.queueDownload("./sounds/levelComplete.wav");
+ASSET_MANAGER.queueDownload("./sounds/8bitVictory.mp3");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
+ASSET_MANAGER.queueDownload("./background/transition.png");
+ASSET_MANAGER.queueDownload("./background/tran.png");
+ASSET_MANAGER.queueDownload("./background/transit.png");
 
 //background
 ASSET_MANAGER.queueDownload("./background/lantern w_o.png");
