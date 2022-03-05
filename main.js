@@ -58,6 +58,8 @@ ASSET_MANAGER.queueDownload("./background/start_crop.png");
 ASSET_MANAGER.queueDownload("./background/end_crop.png");
 ASSET_MANAGER.queueDownload("./background/inside_cas.png");
 
+ASSET_MANAGER.queueDownload("./background/space_temp.png");
+
 
 
 
