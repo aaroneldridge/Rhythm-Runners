@@ -35,7 +35,7 @@ class SceneManager {
 		this.endlevel = new EndLevel(this.game, 0, 0);
 		this.game.addEntity(this.endlevel);
 		ASSET_MANAGER.pauseBackgroundMusic();
-		ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
+		ASSET_MANAGER.playAsset("./sounds/8bitVictory.mp3");
 	};
 	
 	loadLevel(level, transition, title) {
@@ -377,20 +377,14 @@ class SceneManager {
 	};
 
 	addSpaceBackground(i) {
-		let rand = Math.floor(Math.random() * 6);
+		let rand = Math.floor(Math.random() * 2);
 		console.log(rand + " i:" + i);
 		switch(rand) { 
 			case 1:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 480));
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
 			case 2:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new space_temp(this.game, 0+(1000*i), 480));
 			case 3:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
-			case 4:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
-			case 5:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
-			case 6:
 				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
 			case 0:
 				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
