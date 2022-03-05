@@ -47,6 +47,7 @@ ASSET_MANAGER.queueDownload("./background/no_trees_w.png");
 ASSET_MANAGER.queueDownload("./background/trees and gate.png");
 ASSET_MANAGER.queueDownload("./background/trees w_o.png");
 ASSET_MANAGER.queueDownload("./background/trees w.png");
+ASSET_MANAGER.queueDownload("./background/Space1.png");
 
 ASSET_MANAGER.queueDownload("./background/inside_castle.png");
 ASSET_MANAGER.queueDownload("./background/inside_start.png");

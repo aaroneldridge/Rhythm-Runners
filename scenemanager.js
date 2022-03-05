@@ -173,7 +173,6 @@ class SceneManager {
 			}
 			
 			//Adding Random Backgrounds
-
 			if(level == levelOne) {
 				for(let i = 0; i < 100; i++){
 					this.addForestBackground(i);
@@ -188,12 +187,10 @@ class SceneManager {
 			} 
 			else {
 				for(let i = 0; i < 100; i++){
-					//this.addSpaceBackground(i);
+					this.addSpaceBackground(i);
 				}
 			
 			}
-
-
 
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
@@ -376,6 +373,27 @@ class SceneManager {
 				this.game.addEntity(new trees_w_o(this.game, 0+(1700*i), 450));
 			case 0:
 				this.game.addEntity(new trees_w(this.game, 0+(1700*i), 450));
+		};
+	};
+
+	addSpaceBackground(i) {
+		let rand = Math.floor(Math.random() * 6);
+		console.log(rand + " i:" + i);
+		switch(rand) { 
+			case 1:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 480));
+			case 2:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+			case 3:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+			case 4:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+			case 5:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+			case 6:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+			case 0:
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
 		};
 	};
 };

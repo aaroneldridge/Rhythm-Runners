@@ -14,6 +14,22 @@ class lantern_w_o {
 	};
 };
 
+class Space1 {
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y});
+		
+		this.spritesheet = ASSET_MANAGER.getAsset("./background/Space1.png");
+	};
+	
+	update() {
+		
+	};
+	
+	draw(ctx) {
+		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x-400,0,1000,1000);
+	};
+};
+
 class lantern_w {
 	constructor(game, x, y) {
 		Object.assign(this, { game, x, y});
