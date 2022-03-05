@@ -141,15 +141,15 @@ class SceneManager {
 			if (level === levelTwo) {
 				//Adding flooring (should be wood_middle)
 				for(var i = 0; i < 40; i++){
-					this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
+					this.game.addEntity(new Wood_Middle(this.game,-400+(i*64),720));
 				}
 
 				for(var i = 0; i < 96; i++){
-					this.game.addEntity(new Grass_Middle(this.game,12000+(i*64),720));
+					this.game.addEntity(new Wood_Middle(this.game,12000+(i*64),720));
 				}
 
 				for(var i = 0; i < 35; i++){
-					this.game.addEntity(new Grass_Middle(this.game,32142+(i*64),720));
+					this.game.addEntity(new Wood_Middle(this.game,32142+(i*64),720));
 				}
 			}
 			
