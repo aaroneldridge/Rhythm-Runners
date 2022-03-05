@@ -51,11 +51,11 @@ class Grass_Middle {
 	};
 };
 
-class Wood_Middle {
+class Space_Middle {
 	constructor(game, x, y) {
 		Object.assign(this, { game, x, y});
 		
-		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/Wood Middle.png");
+		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/space middle.png");
 		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
 	};
 	
@@ -68,11 +68,11 @@ class Wood_Middle {
 	};
 };
 
-class Space_Middle {
+class Wood_Middle {
 	constructor(game, x, y) {
 		Object.assign(this, { game, x, y});
 		
-		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/space middle.png");
+		this.spritesheet = ASSET_MANAGER.getAsset("./platforms/Wood Middle.png");
 		this.BB = new BoundingBox(this.x-34,this.y,32+34,32);
 	};
 	
