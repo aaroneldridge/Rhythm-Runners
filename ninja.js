@@ -93,12 +93,12 @@ class Ninja {
 				if (that.velocity.y	 > 0) { // falling
 
 					if(entity instanceof Platform_Tile || entity instanceof Grass_Middle
-						|| entity instanceof Space_Tile || entity instanceof Space_Middle // landing
+						|| entity instanceof Space_Tile || entity instanceof Space_Middle || entity instanceof Wood_Middle // landing
 						&& (that.lastBB.bottom) >= entity.BB.top) { // was above last tick
 							that.y = entity.BB.top - 85;
 							that.velocity.y = 0;
 							that.jumping = false;
-							if(entity instanceof Grass_Middle || entity instanceof Space_Middle)
+							if(entity instanceof Grass_Middle || entity instanceof Space_Middle || entity instanceof Wood_Middle)
 								that.y = entity.BB.top - 64;
 
 					}
