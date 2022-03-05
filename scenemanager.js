@@ -139,7 +139,7 @@ class SceneManager {
 			}
 
 			if (level === levelTwo) {
-				//Adding flooring (should be wood_middle)
+				//Adding flooring
 				for(var i = 0; i < 40; i++){
 					this.game.addEntity(new Wood_Middle(this.game,-400+(i*64),720));
 				}
