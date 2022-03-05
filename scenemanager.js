@@ -35,7 +35,7 @@ class SceneManager {
 		this.endlevel = new EndLevel(this.game, 0, 0);
 		this.game.addEntity(this.endlevel);
 		ASSET_MANAGER.pauseBackgroundMusic();
-		ASSET_MANAGER.playAsset("./sounds/8bitVictory.mp3");
+		ASSET_MANAGER.playAsset("./sounds/levelComplete.wav");
 	};
 	
 	loadLevel(level, transition, title) {
@@ -47,7 +47,7 @@ class SceneManager {
 		var that = this;
 		if (!this.transition && !this.title) {		
 			// ninja spawns at beginning of level
-			that.ninja = new Ninja(that.game, 32000, 500);
+			that.ninja = new Ninja(that.game, 0, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -70,7 +70,7 @@ class SceneManager {
 					let spike = level.spikes[i];
 					this.game.addEntity(new Spike(this.game, spike.x, spike.y));
 				}
-			}			
+			}
 
 			if (level.spring) {
 				for (var i = 0; i < level.spring.length; i++) {
@@ -99,9 +99,16 @@ class SceneManager {
 					this.game.addEntity(new Space_Tile(this.game, space.x, space.y));
 				}
 			}
-		
-			//Adding grass flooring for level 1
+			
+			if (level.space_middle) {
+				for (var i = 0; i < level.space_middle.length; i++) {
+					let space = level.space_middle[i];
+					this.game.addEntity(new Space_Middle(this.game, space.x, space.y));
+				}
+			}
+			
 			if (level === levelOne) {
+				//Adding grass flooring
 				for(var i = 0; i < 40; i++){
 					this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
 				}
@@ -131,23 +138,23 @@ class SceneManager {
 				}
 			}
 
-			//Adding grass flooring for level 2
 			if (level === levelTwo) {
+				//Adding grass flooring
 				for(var i = 0; i < 40; i++){
-					this.game.addEntity(new Grass_Middle(this.game,-400+(i*64),720));
-				}
+                    this.game.addEntity(new Wood_Middle(this.game,-400+(i*64),720));
+                }
 
-				for(var i = 0; i < 50; i++){
-					this.game.addEntity(new Grass_Middle(this.game,12000+(i*64),720));
-				}
+                for(var i = 0; i < 50; i++){
+                    this.game.addEntity(new Wood_Middle(this.game,12000+(i*64),720));
+                }
 
-				for(var i = 0; i < 66; i++){
-					this.game.addEntity(new Grass_Middle(this.game,7400+(i*64),720));
-				}
+                for(var i = 0; i < 66; i++){
+                    this.game.addEntity(new Wood_Middle(this.game,7400+(i*64),720));
+                }
 			}
-
-			//Adding space flooring
+			
 			if (level === levelThree || level === levelFour) {
+				//Adding grass flooring
 				for(var i = 0; i < 30; i++){
 					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
 				}
@@ -164,25 +171,30 @@ class SceneManager {
 					this.game.addEntity(new Space_Middle(this.game,15000+(i*64),720));
 				}
 			}
+			
+			//Adding Random Backgrounds
 
-			// adding forest background for level 1
-			if(level == levelOne){
+			if(level == levelOne) {
 				for(let i = 0; i < 100; i++){
-					this.addBackgroundForest(i);
+					this.addForestBackground(i);
 				}
 			}
-			
-			// adding castle background for level 2
-			if(level == levelTwo){
+			else if (level == levelTwo){
 				this.game.addEntity(new inside_start(this.game, 0, 480));
 				for(let i = 1; i < 20; i++){
 					this.game.addEntity(new inside_castle(this.game, 0+(1700*i), 480));
 				}
 				this.game.addEntity(new inside_end(this.game, 33020, 480));
+			} 
+			else {
+				for(let i = 0; i < 100; i++){
+					//this.addSpaceBackground(i);
+				}
+			
 			}
 
-			// adding background for level 3 and 4
-			
+
+
 			ASSET_MANAGER.pauseBackgroundMusic();
 			ASSET_MANAGER.playAsset(level.music);
 			
@@ -346,7 +358,7 @@ class SceneManager {
 		}
 	};
 
-	addBackgroundForest(i) {
+	addForestBackground(i) {
 		let rand = Math.floor(Math.random() * 6);
 		console.log(rand + " i:" + i);
 		switch(rand) { 

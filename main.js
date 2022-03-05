@@ -18,6 +18,7 @@ ASSET_MANAGER.queueDownload("./sprites/hp.png");
 ASSET_MANAGER.queueDownload("./sprites/Flag.png");
 
 ASSET_MANAGER.queueDownload("./platforms/space middle.png");
+ASSET_MANAGER.queueDownload("./platforms/Wood Middle.png");
 
 
 
@@ -50,6 +51,7 @@ ASSET_MANAGER.queueDownload("./background/trees w.png");
 ASSET_MANAGER.queueDownload("./background/inside_castle.png");
 ASSET_MANAGER.queueDownload("./background/inside_start.png");
 ASSET_MANAGER.queueDownload("./background/inside_end.png");
+
 ASSET_MANAGER.queueDownload("./background/inside_crop.png");
 ASSET_MANAGER.queueDownload("./background/start_crop.png");
 ASSET_MANAGER.queueDownload("./background/end_crop.png");
