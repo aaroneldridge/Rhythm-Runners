@@ -47,10 +47,17 @@ ASSET_MANAGER.queueDownload("./background/trees and gate.png");
 ASSET_MANAGER.queueDownload("./background/trees w_o.png");
 ASSET_MANAGER.queueDownload("./background/trees w.png");
 
+ASSET_MANAGER.queueDownload("./background/inside_castle.png");
+ASSET_MANAGER.queueDownload("./background/inside_start.png");
+ASSET_MANAGER.queueDownload("./background/inside_end.png");
+ASSET_MANAGER.queueDownload("./background/inside_crop.png");
+ASSET_MANAGER.queueDownload("./background/start_crop.png");
+ASSET_MANAGER.queueDownload("./background/end_crop.png");
 
 
 
-// objects
+
+// objects                  
 ASSET_MANAGER.queueDownload("./platforms/Platform Tile.png");
 ASSET_MANAGER.queueDownload("./platforms/space tile.png");
 
