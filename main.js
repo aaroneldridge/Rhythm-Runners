@@ -43,6 +43,16 @@ ASSET_MANAGER.queueDownload("./background/trees and gate.png");
 ASSET_MANAGER.queueDownload("./background/trees w_o.png");
 ASSET_MANAGER.queueDownload("./background/trees w.png");
 ASSET_MANAGER.queueDownload("./background/Space1.png");
+ASSET_MANAGER.queueDownload("./background/Space2.png");
+ASSET_MANAGER.queueDownload("./background/Space3.png");
+ASSET_MANAGER.queueDownload("./background/Space4.png");
+ASSET_MANAGER.queueDownload("./background/Space5.png");
+ASSET_MANAGER.queueDownload("./background/Space6.png");
+ASSET_MANAGER.queueDownload("./background/Space7.png");
+ASSET_MANAGER.queueDownload("./background/Space8.png");
+ASSET_MANAGER.queueDownload("./background/Space9.png");
+
+
 
 
 

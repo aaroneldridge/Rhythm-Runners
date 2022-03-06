@@ -356,23 +356,31 @@ class SceneManager {
 	};
 
 	addSpaceBackground(i) {
-		let rand = Math.floor(Math.random() * 6);
+		let rand = Math.floor(Math.random() * 10);
 		console.log(rand + " i:" + i);
 		switch(rand) { 
 			case 1:
 				this.game.addEntity(new Space1(this.game, 0+(1000*i), 480));
 			case 2:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space2(this.game, 0+(1000*i), 450));
 			case 3:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space3(this.game, 0+(1000*i), 450));
 			case 4:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space4(this.game, 0+(1000*i), 450));
 			case 5:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space5(this.game, 0+(1000*i), 450));
 			case 6:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space6(this.game, 0+(1000*i), 450));
+			case 7:
+				this.game.addEntity(new Space7(this.game, 0+(1000*i), 450));
+			case 8:
+				this.game.addEntity(new Space8(this.game, 0+(1000*i), 450));
+			case 9:
+				this.game.addEntity(new Space9(this.game, 0+(1000*i), 450));
+			case 10:
+				this.game.addEntity(new Space3(this.game, 0+(1000*i), 450));
 			case 0:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space3(this.game, 0+(1000*i), 450));
 		};
 	};
 };
