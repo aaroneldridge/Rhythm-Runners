@@ -78,7 +78,7 @@ class Ninja {
 			//ASSET_MANAGER.pauseBackgroundMusic();
 		}
 		
-		this.y += this.velocity.y * this.game.clockTick * 144;
+		this.y += this.velocity.y;
 		this.x += this.velocity.x * this.game.clockTick * 144;
 		
 		
