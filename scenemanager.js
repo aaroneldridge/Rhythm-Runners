@@ -78,6 +78,13 @@ class SceneManager {
 					this.game.addEntity(new Spring(this.game, spring.x, spring.y));
 				}
 			}
+
+			if (level.spaceSpring) {
+				for (var i = 0; i < level.spaceSpring.length; i++) {
+					let spaceSpring = level.spaceSpring[i];
+					this.game.addEntity(new SpaceSpring(this.game, spaceSpring.x, spaceSpring.y));
+				}
+			}
 			
 			if (level.coins) {
 				for (var i = 0; i < level.coins.length; i++) {
@@ -153,7 +160,7 @@ class SceneManager {
 				}
 			}
 			
-			if (level === levelThree || level === levelFour) {
+			if (level === levelThree) {
 				//Adding space flooring
 				for(var i = 0; i < 30; i++){
 					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
@@ -170,6 +177,14 @@ class SceneManager {
 				for(var i = 0; i < 124; i++){
 					this.game.addEntity(new Space_Middle(this.game,15000+(i*64),720));
 				}
+			}
+
+			if (level === levelFour) {
+				//Adding space flooring
+				for(var i = 0; i < 100; i++){
+					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
+				}
+
 			}
 			
 			//Adding Random Backgrounds

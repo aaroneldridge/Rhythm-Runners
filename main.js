@@ -16,6 +16,7 @@ ASSET_MANAGER.queueDownload("./sprites/Spring.png");
 ASSET_MANAGER.queueDownload("./sprites/Coin1.png");
 ASSET_MANAGER.queueDownload("./sprites/hp.png");
 ASSET_MANAGER.queueDownload("./sprites/Flag.png");
+ASSET_MANAGER.queueDownload("./sprites/SpaceSpring.png");
 
 ASSET_MANAGER.queueDownload("./platforms/space middle.png");
 ASSET_MANAGER.queueDownload("./platforms/Wood Middle.png");
@@ -28,6 +29,8 @@ ASSET_MANAGER.queueDownload("./sounds/level1.mp3");
 ASSET_MANAGER.queueDownload("./sounds/level2.mp3");
 ASSET_MANAGER.queueDownload("./sounds/level3.mp3");
 ASSET_MANAGER.queueDownload("./sounds/attack.wav");
+ASSET_MANAGER.queueDownload("./sounds/level4.mp3");
+
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 ASSET_MANAGER.queueDownload("./sounds/coin.wav");
 ASSET_MANAGER.queueDownload("./sounds/levelComplete.wav");

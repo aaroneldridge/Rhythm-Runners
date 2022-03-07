@@ -141,6 +141,23 @@ class Spring {
 	};
 };
 
+class SpaceSpring {
+	constructor(game, x, y) {
+		Object.assign(this, { game, x, y});
+		
+		this.spritesheet = ASSET_MANAGER.getAsset("./sprites/SpaceSpring.png");
+		this.BB = new BoundingBox(this.x,this.y,64,64);
+	};
+	
+	update() {
+		
+	};
+	
+	draw(ctx) {
+		ctx.drawImage(this.spritesheet,this.x-this.game.camera.x,this.y,64,64);
+	};
+};
+
 class Spike{
 	constructor(game, x, y) {
 		Object.assign(this, { game, x, y});

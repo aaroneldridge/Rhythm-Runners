@@ -976,13 +976,13 @@ var levelThree = {
 			 {x: 22056, y: 690}
 	],
 			 
-	spring: [{x: 5300, y: 690}],
+	spaceSpring: [{x: 5300, y: 690}],
 			
 	flags: [{x: 22875, y: 690}]
 };
 
 var levelFour = {
-	music: "./sounds/level3.mp3",
+	music: "./sounds/level4.mp3",
 	
 	coins: [{x: 500, y: 670},
 			{x: 950, y: 430},
