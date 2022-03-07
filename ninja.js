@@ -130,6 +130,7 @@ class Ninja {
 						console.log("spikes");
 						that.hits++;
 						entity.BB = new BoundingBox(null,null,null,null);
+						ASSET_MANAGER.playAsset("./sounds/oof.mp3");
 				}
 
 

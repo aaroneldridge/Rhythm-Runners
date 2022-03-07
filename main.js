@@ -35,6 +35,7 @@ ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 ASSET_MANAGER.queueDownload("./sounds/coin.wav");
 ASSET_MANAGER.queueDownload("./sounds/levelComplete.wav");
 ASSET_MANAGER.queueDownload("./sounds/8bitVictory.mp3");
+ASSET_MANAGER.queueDownload("./sounds/oof.mp3");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
