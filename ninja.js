@@ -79,7 +79,7 @@ class Ninja {
 		}
 		
 		this.y += this.velocity.y;
-		this.x += this.velocity.x;
+		this.x += this.velocity.x * this.game.clockTick * 144;
 		
 		
 
@@ -130,6 +130,7 @@ class Ninja {
 						console.log("spikes");
 						that.hits++;
 						entity.BB = new BoundingBox(null,null,null,null);
+						ASSET_MANAGER.playAsset("./sounds/oof.mp3");
 				}
 
 
