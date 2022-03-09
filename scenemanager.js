@@ -78,6 +78,13 @@ class SceneManager {
 					this.game.addEntity(new Spring(this.game, spring.x, spring.y));
 				}
 			}
+
+			if (level.spaceSpring) {
+				for (var i = 0; i < level.spaceSpring.length; i++) {
+					let spaceSpring = level.spaceSpring[i];
+					this.game.addEntity(new SpaceSpring(this.game, spaceSpring.x, spaceSpring.y));
+				}
+			}
 			
 			if (level.coins) {
 				for (var i = 0; i < level.coins.length; i++) {
@@ -153,7 +160,7 @@ class SceneManager {
 				}
 			}
 			
-			if (level === levelThree || level === levelFour) {
+			if (level === levelThree) {
 				//Adding space flooring
 				for(var i = 0; i < 30; i++){
 					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
@@ -170,6 +177,22 @@ class SceneManager {
 				for(var i = 0; i < 124; i++){
 					this.game.addEntity(new Space_Middle(this.game,15000+(i*64),720));
 				}
+			}
+
+			if (level === levelFour) {
+				//Adding space flooring
+				for(var i = 0; i < 32; i++){
+					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
+				}
+
+				for(var i = 0; i < 15; i++){
+					this.game.addEntity(new Space_Middle(this.game,3400+(i*64),720));
+				}
+
+				for(var i = 0; i < 40; i++){
+					this.game.addEntity(new Space_Middle(this.game,5600+(i*64),720));
+				}
+
 			}
 			
 			//Adding Random Backgrounds
@@ -326,7 +349,7 @@ class SceneManager {
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Black";
 			ctx.fillText("try to reach the end of the stage without dying!", 210, 100);
-			ctx.fillText("collect as many coins as you can!   :)", 260, 150);
+			ctx.fillText("collect as many coins as you can!", 260, 150);
 			ctx.font = 'italic small-caps 40px fantasy';
 			ctx.fillText("SELECT A LEVEL!", 375, 575);
 			
@@ -377,17 +400,31 @@ class SceneManager {
 	};
 
 	addSpaceBackground(i) {
-		let rand = Math.floor(Math.random() * 2);
+		let rand = Math.floor(Math.random() * 10);
 		console.log(rand + " i:" + i);
 		switch(rand) { 
 			case 1:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space1(this.game, 0+(1000*i), 480));
 			case 2:
-				this.game.addEntity(new space_temp(this.game, 0+(1000*i), 480));
+				this.game.addEntity(new Space2(this.game, 0+(1000*i), 450));
 			case 3:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space3(this.game, 0+(1000*i), 450));
+			case 4:
+				this.game.addEntity(new Space4(this.game, 0+(1000*i), 450));
+			case 5:
+				this.game.addEntity(new Space5(this.game, 0+(1000*i), 450));
+			case 6:
+				this.game.addEntity(new Space6(this.game, 0+(1000*i), 450));
+			case 7:
+				this.game.addEntity(new Space7(this.game, 0+(1000*i), 450));
+			case 8:
+				this.game.addEntity(new Space8(this.game, 0+(1000*i), 450));
+			case 9:
+				this.game.addEntity(new Space9(this.game, 0+(1000*i), 450));
+			case 10:
+				this.game.addEntity(new Space3(this.game, 0+(1000*i), 450));
 			case 0:
-				this.game.addEntity(new Space1(this.game, 0+(1000*i), 450));
+				this.game.addEntity(new Space3(this.game, 0+(1000*i), 450));
 		};
 	};
 };

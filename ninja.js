@@ -105,7 +105,7 @@ class Ninja {
 					}
 
 					//SPRING MECHANICS
-					if (entity instanceof Spring && (that.lastBB.bottom) >= entity.BB.top)
+					if ((entity instanceof Spring || entity instanceof SpaceSpring) && (that.lastBB.bottom) >= entity.BB.top)
 					{
 						that.y = entity.BB.top-85;
 						that.velocity.y = -20
@@ -130,6 +130,7 @@ class Ninja {
 						console.log("spikes");
 						that.hits++;
 						entity.BB = new BoundingBox(null,null,null,null);
+						ASSET_MANAGER.playAsset("./sounds/oof.mp3");
 				}
 
 

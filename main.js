@@ -16,6 +16,7 @@ ASSET_MANAGER.queueDownload("./sprites/Spring.png");
 ASSET_MANAGER.queueDownload("./sprites/Coin1.png");
 ASSET_MANAGER.queueDownload("./sprites/hp.png");
 ASSET_MANAGER.queueDownload("./sprites/Flag.png");
+ASSET_MANAGER.queueDownload("./sprites/SpaceSpring.png");
 
 ASSET_MANAGER.queueDownload("./platforms/space middle.png");
 ASSET_MANAGER.queueDownload("./platforms/Wood Middle.png");
@@ -28,10 +29,13 @@ ASSET_MANAGER.queueDownload("./sounds/level1.mp3");
 ASSET_MANAGER.queueDownload("./sounds/level2.mp3");
 ASSET_MANAGER.queueDownload("./sounds/level3.mp3");
 ASSET_MANAGER.queueDownload("./sounds/attack.wav");
+ASSET_MANAGER.queueDownload("./sounds/level4.mp3");
+
 ASSET_MANAGER.queueDownload("./sounds/jump.wav");
 ASSET_MANAGER.queueDownload("./sounds/coin.wav");
 ASSET_MANAGER.queueDownload("./sounds/levelComplete.wav");
 ASSET_MANAGER.queueDownload("./sounds/8bitVictory.mp3");
+ASSET_MANAGER.queueDownload("./sounds/oof.mp3");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
@@ -48,6 +52,16 @@ ASSET_MANAGER.queueDownload("./background/trees and gate.png");
 ASSET_MANAGER.queueDownload("./background/trees w_o.png");
 ASSET_MANAGER.queueDownload("./background/trees w.png");
 ASSET_MANAGER.queueDownload("./background/Space1.png");
+ASSET_MANAGER.queueDownload("./background/Space2.png");
+ASSET_MANAGER.queueDownload("./background/Space3.png");
+ASSET_MANAGER.queueDownload("./background/Space4.png");
+ASSET_MANAGER.queueDownload("./background/Space5.png");
+ASSET_MANAGER.queueDownload("./background/Space6.png");
+ASSET_MANAGER.queueDownload("./background/Space7.png");
+ASSET_MANAGER.queueDownload("./background/Space8.png");
+ASSET_MANAGER.queueDownload("./background/Space9.png");
+
+
 
 ASSET_MANAGER.queueDownload("./background/inside_castle.png");
 ASSET_MANAGER.queueDownload("./background/inside_start.png");
