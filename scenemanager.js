@@ -181,8 +181,16 @@ class SceneManager {
 
 			if (level === levelFour) {
 				//Adding space flooring
-				for(var i = 0; i < 100; i++){
+				for(var i = 0; i < 32; i++){
 					this.game.addEntity(new Space_Middle(this.game,-400+(i*64),720));
+				}
+
+				for(var i = 0; i < 15; i++){
+					this.game.addEntity(new Space_Middle(this.game,3400+(i*64),720));
+				}
+
+				for(var i = 0; i < 40; i++){
+					this.game.addEntity(new Space_Middle(this.game,5600+(i*64),720));
 				}
 
 			}
@@ -341,7 +349,7 @@ class SceneManager {
 			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
 			ctx.fillStyle = "Black";
 			ctx.fillText("try to reach the end of the stage without dying!", 210, 100);
-			ctx.fillText("collect as many coins as you can!   :)", 260, 150);
+			ctx.fillText("collect as many coins as you can!", 260, 150);
 			ctx.font = 'italic small-caps 40px fantasy';
 			ctx.fillText("SELECT A LEVEL!", 375, 575);
 			
