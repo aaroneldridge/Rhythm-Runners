@@ -79,7 +79,7 @@ class Ninja {
 		}
 		
 		this.y += this.velocity.y;
-		this.x += this.velocity.x;
+		this.x += this.velocity.x * this.game.clockTick * 144;
 		
 		
 
