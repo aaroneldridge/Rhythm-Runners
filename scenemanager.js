@@ -304,10 +304,8 @@ class SceneManager {
 					this.loadLevel(levelFour, false, false);
 				}
 			} else if (this.game.click.x > 500 && this.game.click.x < 600 && this.game.click.y > 630 && this.game.click.y < 710) {
+					this.end = false;
 					this.title = true;
-			} else if (this.game.click.x > 450 && this.game.click.x < 550 && this.game.click.y > 450 && this.game.click.y < 550) {
-				this.title = true;
-				this.clearEntities;
 			}
 		}
 		
