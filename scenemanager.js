@@ -189,8 +189,16 @@ class SceneManager {
 					this.game.addEntity(new Space_Middle(this.game,3400+(i*64),720));
 				}
 
-				for(var i = 0; i < 40; i++){
+				for(var i = 0; i < 21; i++){
 					this.game.addEntity(new Space_Middle(this.game,5600+(i*64),720));
+				}
+
+				for(var i = 0; i < 22; i++){
+					this.game.addEntity(new Space_Middle(this.game,8200+(i*64),720));
+				}
+
+				for(var i = 0; i < 40; i++){
+					this.game.addEntity(new Space_Middle(this.game,13500+(i*64),720));
 				}
 
 			}
