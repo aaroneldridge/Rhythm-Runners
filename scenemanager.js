@@ -9,7 +9,7 @@ class SceneManager {
 		this.death = false;
 		this.level = null;
 		this.end = false;
-		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
+		this.titleBackground = ASSET_MANAGER.getAsset("./background/all_portal.png");
 		this.ninja = new Ninja(this.game, 0, 500);
 		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
 		
@@ -343,16 +343,22 @@ class SceneManager {
 		}
 
 
-		ctx.font = 'italic small-caps 80px fantasy';
+		ctx.font = 'italic small-caps 130px fantasy';
 		
 		if (this.title && !this.transition) {
-			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+			ctx.drawImage(this.titleBackground, 10, 30, 620, 349, 0, 0, 1024, 768);
+
 			ctx.fillStyle = "Black";
-			ctx.fillText("Rhythm Runners", 275, 300);
+			ctx.fillText("Rhythm Runners", 195, 300);
+			ctx.fillStyle = "Red";
+			ctx.fillText("Rhythm Runners", 200, 300);
 			
-			ctx.font = 'italic small-caps 60px fantasy';
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 460 && this.game.mouse.y < 510 ? "White" : "Black";
-			ctx.fillText("PLAY", 425, 500);
+			ctx.font = 'italic small-caps 80px fantasy';
+			ctx.fillStyle = "Black";
+			ctx.fillText("PLAY", 435, 500);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 460 && this.game.mouse.y < 510 ? "White" : "Red";
+			ctx.fillText("PLAY", 440, 500);
+		
 		}
 		
 		if (this.transition && !this.title) {
