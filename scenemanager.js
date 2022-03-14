@@ -47,7 +47,7 @@ class SceneManager {
 		var that = this;
 		if (!this.transition && !this.title) {		
 			// ninja spawns at beginning of level
-			that.ninja = new Ninja(that.game, 29000, 500);
+			that.ninja = new Ninja(that.game, 0, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
