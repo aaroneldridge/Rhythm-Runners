@@ -28,9 +28,16 @@ class EndLevel {
 		if (this.game.camera.levelCount === 4) {
 			ctx.fillText("Stage 2-2 completed!", 300, 300);
 		}
-			
-		// To go back to the beginning
-		ctx.fillStyle = this.game.mouse && this.game.mouse.x > 390 && this.game.mouse.x < 650 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
-		ctx.fillText("Continue", 400, 700);
+		
+		if (this.game.camera.levelCount === 4){
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 390 && this.game.mouse.x < 650 && this.game.mouse.y > 660 && this.game.mouse.y < 710 ? "White" : "Black";
+			ctx.fillText("Quit", 350, 700);
+		} else {
+			ctx.fillText("Continue?", 400, 600);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 400 && this.game.mouse.x < 500 && this.game.mouse.y > 630 && this.game.mouse.y < 710 ? "White" : "Black";
+			ctx.fillText("Yes", 400, 700);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 550 && this.game.mouse.x < 650 && this.game.mouse.y > 630 && this.game.mouse.y < 710 ? "White" : "Black";
+			ctx.fillText("No", 550, 700);
+		}
 	}
 }
