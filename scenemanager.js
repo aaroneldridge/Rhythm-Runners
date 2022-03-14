@@ -9,7 +9,8 @@ class SceneManager {
 		this.death = false;
 		this.level = null;
 		this.end = false;
-		this.titleBackground = ASSET_MANAGER.getAsset("./background/title.png");
+		this.titleBackground = ASSET_MANAGER.getAsset("./background/all_portal.png");
+		this.transitionBackground = ASSET_MANAGER.getAsset("./background/portals.png");
 		this.ninja = new Ninja(this.game, 0, 500);
 		this.hp = ASSET_MANAGER.getAsset("./sprites/hp.png");
 		
@@ -287,7 +288,7 @@ class SceneManager {
 		}
 		
 		if (this.end && this.game.click) {
-			if (this.game.click.x > 400 && this.game.click.x < 500 && this.game.click.y > 630 && this.game.click.y < 710) {
+			if (this.game.click.x > 350 && this.game.click.x < 450 && this.game.click.y > 630 && this.game.click.y < 710) {
 				this.end = false;
 				this.levelCount++;
 				
@@ -302,10 +303,12 @@ class SceneManager {
 				if (this.levelCount === 4) {
 					this.loadLevel(levelFour, false, false);
 				}
-			} else if (this.game.click.x > 550 && this.game.click.x < 650 && this.game.click.y > 630 && this.game.click.y < 710 || 
-				this.game.click.x > 390 && this.game.click.x < 650 && this.game.click.y > 660 && this.game.click.y < 710) {
+			} else if (this.game.click.x > 500 && this.game.click.x < 600 && this.game.click.y > 630 && this.game.click.y < 710) {
 					this.title = true;
-				}
+			} else if (this.game.click.x > 450 && this.game.click.x < 550 && this.game.click.y > 450 && this.game.click.y < 550) {
+				this.title = true;
+				this.clearEntities;
+			}
 		}
 		
 		this.updateAudio();
@@ -346,19 +349,26 @@ class SceneManager {
 		ctx.font = 'italic small-caps 80px fantasy';
 		
 		if (this.title && !this.transition) {
-			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
+			ctx.drawImage(this.titleBackground, 10, 30, 620, 349, 0, 0, 1024, 768);
+
+			ctx.font = 'italic small-caps 130px fantasy';
 			ctx.fillStyle = "Black";
-			ctx.fillText("Rhythm Runners", 275, 300);
+			ctx.fillText("Rhythm Runners", 195, 300);
+			ctx.fillStyle = "Red";
+			ctx.fillText("Rhythm Runners", 200, 300);
 			
-			ctx.font = 'italic small-caps 60px fantasy';
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 460 && this.game.mouse.y < 510 ? "White" : "Black";
-			ctx.fillText("PLAY", 425, 500);
+			ctx.font = 'italic small-caps 80px fantasy';
+			ctx.fillStyle = "Black";
+			ctx.fillText("PLAY", 435, 500);
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 415 && this.game.mouse.x < 565 && this.game.mouse.y > 460 && this.game.mouse.y < 510 ? "White" : "Red";
+			ctx.fillText("PLAY", 440, 500);
+		
 		}
 		
 		if (this.transition && !this.title) {
 			ctx.font = 'italic small-caps 40px fantasy';
-			ctx.drawImage(this.titleBackground, 0, 0, 620, 349, 0, 0, 1024, 768);
-			ctx.fillStyle = "Black";
+			ctx.drawImage(this.transitionBackground, 50, 20, 620, 349, 0, 0, 1024, 768);
+			ctx.fillStyle = "White";
 			ctx.fillText("try to reach the end of the stage without dying!", 210, 100);
 			ctx.fillText("collect as many coins as you can!", 260, 150);
 			ctx.font = 'italic small-caps 40px fantasy';
@@ -366,13 +376,13 @@ class SceneManager {
 			
 			// level select
 			ctx.font = 'italic small-caps bold 48px fantasy';
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 270 && this.game.mouse.x < 420 && this.game.mouse.y > 240 && this.game.mouse.y < 320 ? "White" : "Black";
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 270 && this.game.mouse.x < 420 && this.game.mouse.y > 240 && this.game.mouse.y < 320 ? "White" : "Red";
 			ctx.fillText("Level 1-1", 275, 300);
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 570 && this.game.mouse.x < 720 && this.game.mouse.y > 240 && this.game.mouse.y < 320 ? "White" : "Black";
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 570 && this.game.mouse.x < 720 && this.game.mouse.y > 240 && this.game.mouse.y < 320 ? "White" : "Red";
 			ctx.fillText("Level 1-2", 575, 300);
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 270 && this.game.mouse.x < 420 && this.game.mouse.y > 390 && this.game.mouse.y < 470 ? "White" : "Black";
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 270 && this.game.mouse.x < 420 && this.game.mouse.y > 390 && this.game.mouse.y < 470 ? "White" : "Red";
 			ctx.fillText("Level 2-1", 275, 450);
-			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 570 && this.game.mouse.x < 720 && this.game.mouse.y > 390 && this.game.mouse.y < 470 ? "White" : "Black";
+			ctx.fillStyle = this.game.mouse && this.game.mouse.x > 570 && this.game.mouse.x < 720 && this.game.mouse.y > 390 && this.game.mouse.y < 470 ? "White" : "Red";
 			ctx.fillText("Level 2-2", 575, 450);
 
 

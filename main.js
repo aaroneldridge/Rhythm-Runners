@@ -39,6 +39,8 @@ ASSET_MANAGER.queueDownload("./sounds/oof.mp3");
 
 // title
 ASSET_MANAGER.queueDownload("./background/title.png");
+ASSET_MANAGER.queueDownload("./background/all_portal.png");
+ASSET_MANAGER.queueDownload("./background/portals.png");
 ASSET_MANAGER.queueDownload("./background/transition.png");
 ASSET_MANAGER.queueDownload("./background/tran.png");
 ASSET_MANAGER.queueDownload("./background/transit.png");
