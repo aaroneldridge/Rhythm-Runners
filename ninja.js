@@ -142,19 +142,40 @@ class Ninja {
 					}
 					
 				if(that.velocity.y < 0){
-				if(entity instanceof Platform_Tile // bonking head
-					&& (that.lastBB.top) >= entity.BB.bottom) {
-						console.log("bonk");
-						that.y = entity.BB.bottom;
-						that.velocity.y = 0;
+					if(entity instanceof Platform_Tile // bonking head
+						&& (that.lastBB.top) >= entity.BB.bottom) {
+							console.log("bonk");
+							that.y = entity.BB.bottom;
+							that.velocity.y = 0;
 							
+					}
 				}
 			}
-
-			
-			}
-
 		});
+		
+		if (this.game.camera.levelCount === 1) {
+			if (that.x >= 30550) {
+				that.game.camera.loadEndLevel();
+			}
+		}
+		
+		if (this.game.camera.levelCount === 2) {
+			if (that.x >= 33500) {
+				that.game.camera.loadEndLevel();
+			}
+		}
+		
+		if (this.game.camera.levelCount === 3) {
+			if (that.x >= 22875) {
+				that.game.camera.loadEndLevel();
+			}
+		}
+		
+		if (this.game.camera.levelCount === 4) {
+			if (that.x >= 14878) {
+				that.game.camera.loadEndLevel();
+			}
+		}
 	};
 	
 	draw(ctx) {
