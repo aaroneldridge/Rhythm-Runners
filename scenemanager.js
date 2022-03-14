@@ -47,7 +47,7 @@ class SceneManager {
 		var that = this;
 		if (!this.transition && !this.title) {		
 			// ninja spawns at beginning of level
-			that.ninja = new Ninja(that.game, 0, 500);
+			that.ninja = new Ninja(that.game, 29000, 500);
 			
 			var ninja = false;
 			this.game.entities.forEach(function(entity) {
@@ -287,7 +287,7 @@ class SceneManager {
 		}
 		
 		if (this.end && this.game.click) {
-			if (this.game.click.x > 390 && this.game.click.x < 650 && this.game.click.y > 660 && this.game.click.y < 710) {
+			if (this.game.click.x > 400 && this.game.click.x < 500 && this.game.click.y > 630 && this.game.click.y < 710) {
 				this.end = false;
 				this.levelCount++;
 				
@@ -302,7 +302,10 @@ class SceneManager {
 				if (this.levelCount === 4) {
 					this.loadLevel(levelFour, false, false);
 				}
-			}
+			} else if (this.game.click.x > 550 && this.game.click.x < 650 && this.game.click.y > 630 && this.game.click.y < 710 || 
+				this.game.click.x > 390 && this.game.click.x < 650 && this.game.click.y > 660 && this.game.click.y < 710) {
+					this.title = true;
+				}
 		}
 		
 		this.updateAudio();
